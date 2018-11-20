@@ -1,4 +1,4 @@
-package logic;
+package structures;
 
 public class Configuration {
 }

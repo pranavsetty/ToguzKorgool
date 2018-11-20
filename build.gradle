@@ -1,3 +1,16 @@
+
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+
+    }
+}
+
+
 plugins {
     id 'java'
 }
@@ -6,6 +19,25 @@ apply plugin: 'application'
 
 group 'teammeerkat'
 version '1.0-SNAPSHOT'
+
+
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'Game'
+
+    // minimal requirement for jfxNative-task
+    vendor = 'Meerkat'
+}
 
 sourceCompatibility = 1.8
 
@@ -19,6 +51,6 @@ dependencies {
 
 run {
 
-    mainClassName = "logic.Game";
+    mainClassName = "Game";
 
 }

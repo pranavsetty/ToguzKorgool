@@ -1,4 +1,4 @@
-package logic;
+package controllers;
 
 public class Board {
 }
