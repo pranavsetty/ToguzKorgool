@@ -10,4 +10,5 @@ public class Kazan {
 
     public int GetKorgols(){return korgols;}
 
+
 }

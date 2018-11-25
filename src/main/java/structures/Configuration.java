@@ -6,6 +6,9 @@ import java.util.List;
 
 public class Configuration {
 
+    // legal amount
+    private static final int TOTALKORGOLS = 162;
+
     // configuration for white and black side holes
     private ArrayList<Hole> holes = new ArrayList<Hole>(18);
 
@@ -23,14 +26,28 @@ public class Configuration {
     // @return: a boolean that returns false if the parsing failed
     private boolean Parse(String input){
 
+        // check for valid string structure
+        if(!input.contains("//")){
+            return false;
+        }
+
         // split into numeric strings and check that there are 18 separate values
         String[] lineSplit = input.split("//");
         String[] holeValues = lineSplit[0].split(",");
         String[] kazanValues = lineSplit[1].split(",");
 
+        // check for valid string structure
+        if(holeValues.length != 18 || kazanValues.length != 2){
+            return false;
+        }
+
         // setups kazans
-        white = new Kazan(Integer.parseInt(kazanValues[0]));
-        black = new Kazan(Integer.parseInt(kazanValues[1]));
+        try {
+            white = new Kazan(Integer.parseInt(kazanValues[0]));
+            black = new Kazan(Integer.parseInt(kazanValues[1]));
+        } catch (NumberFormatException nfe) {
+            return false;
+        };
 
         // loop over quantities and create hole for each
         for(String number : holeValues){
@@ -43,6 +60,17 @@ public class Configuration {
 
         }
 
+        // check for valid korgol amount
+        int sum = 0;
+        for(Hole h : holes){
+            sum += h.GetKorgols();
+        }
+        sum += (GetBlackKazan().GetKorgols() + GetWhiteKazan().GetKorgols());
+
+        if(sum != TOTALKORGOLS){
+            return false;
+        }
+
         AddToList(this);
         return true;
 
@@ -51,7 +79,7 @@ public class Configuration {
     // tries to parse this given configuration into a saveable string
     // @param: void
     // @return: a string to save
-    private String Parse(){
+    public String Parse(){
 
         // setup separate strings
         String line = "";
@@ -61,7 +89,7 @@ public class Configuration {
             line += (hole.GetKorgols() + ",");
         }
 
-        return line.substring(0, 35) + "//" + white.GetKorgols() + "," + black.GetKorgols();
+        return line.substring(0, line.length() - 1) + "//" + white.GetKorgols() + "," + black.GetKorgols();
 
     }
 
@@ -72,9 +100,30 @@ public class Configuration {
 
     // equality override
     // two configurations are equal if their setups are the same
-    // TODO - Implement equals override for Hole and Kazan classes
     public boolean equals(Configuration other) {
-        return holes.equals(other.holes) && white == other.white && black == other.black;
+
+        if(!(white.GetKorgols() == other.GetWhiteKazan().GetKorgols())){
+            return false;
+        }
+
+        if(!(black.GetKorgols() == other.GetBlackKazan().GetKorgols())){
+            return false;
+        }
+
+        for(int i = 0; i < holes.size(); i++){
+
+            if(i > other.GetHoles().size() || i > holes.size()){
+                return false;
+            }
+
+            if(holes.get(i).GetKorgols() != other.GetHoles().get(i).GetKorgols()){
+                return false;
+            }
+
+        }
+
+        return true;
+
     }
 
     // ------------------------

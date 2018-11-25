@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Configuration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">toguz_korgool</a> &gt; <a href="index.source.html" class="el_package">structures</a> &gt; <span class="el_source">Configuration.java</span></div><h1>Configuration.java</h1><pre class="source lang-java linenums">package structures;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Configuration {
+
+    // legal amount
+    private static final int TOTALKORGOLS = 162;
+
+    // configuration for white and black side holes
+<span class="fc" id="L13">    private ArrayList&lt;Hole&gt; holes = new ArrayList&lt;Hole&gt;(18);</span>
+
+    // white and black kazans
+    private Kazan white;
+    private Kazan black;
+
+    // constructor
+<span class="fc" id="L20">    public Configuration(String sav){</span>
+<span class="fc" id="L21">        Parse(sav);</span>
+<span class="fc" id="L22">    }</span>
+
+    // tries to parse a given input line to an arraylist of holes
+    // @param: an input String of the format '-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-//-,-'
+    // @return: a boolean that returns false if the parsing failed
+    private boolean Parse(String input){
+
+        // check for valid string structure
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if(!input.contains(&quot;//&quot;)){</span>
+<span class="fc" id="L31">            return false;</span>
+        }
+
+        // split into numeric strings and check that there are 18 separate values
+<span class="fc" id="L35">        String[] lineSplit = input.split(&quot;//&quot;);</span>
+<span class="fc" id="L36">        String[] holeValues = lineSplit[0].split(&quot;,&quot;);</span>
+<span class="fc" id="L37">        String[] kazanValues = lineSplit[1].split(&quot;,&quot;);</span>
+
+        // check for valid string structure
+<span class="fc bfc" id="L40" title="All 4 branches covered.">        if(holeValues.length != 18 || kazanValues.length != 2){</span>
+<span class="fc" id="L41">            return false;</span>
+        }
+
+        // setups kazans
+        try {
+<span class="fc" id="L46">            white = new Kazan(Integer.parseInt(kazanValues[0]));</span>
+<span class="fc" id="L47">            black = new Kazan(Integer.parseInt(kazanValues[1]));</span>
+<span class="fc" id="L48">        } catch (NumberFormatException nfe) {</span>
+<span class="fc" id="L49">            return false;</span>
+<span class="fc" id="L50">        };</span>
+
+        // loop over quantities and create hole for each
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for(String number : holeValues){</span>
+
+            try {
+<span class="fc" id="L56">                holes.add(new Hole(Integer.parseInt(number)));</span>
+<span class="fc" id="L57">            } catch (NumberFormatException nfe) {</span>
+<span class="fc" id="L58">                return false;</span>
+<span class="fc" id="L59">            };</span>
+
+        }
+
+        // check for valid korgol amount
+<span class="fc" id="L64">        int sum = 0;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for(Hole h : holes){</span>
+<span class="fc" id="L66">            sum += h.GetKorgols();</span>
+<span class="fc" id="L67">        }</span>
+<span class="fc" id="L68">        sum += (GetBlackKazan().GetKorgols() + GetWhiteKazan().GetKorgols());</span>
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if(sum != TOTALKORGOLS){</span>
+<span class="fc" id="L71">            return false;</span>
+        }
+
+<span class="fc" id="L74">        AddToList(this);</span>
+<span class="fc" id="L75">        return true;</span>
+
+    }
+
+    // tries to parse this given configuration into a saveable string
+    // @param: void
+    // @return: a string to save
+    public String Parse(){
+
+        // setup separate strings
+<span class="fc" id="L85">        String line = &quot;&quot;;</span>
+
+        // loop over all holes
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for(Hole hole : holes){</span>
+<span class="fc" id="L89">            line += (hole.GetKorgols() + &quot;,&quot;);</span>
+<span class="fc" id="L90">        }</span>
+
+<span class="fc" id="L92">        return line.substring(0, line.length() - 1) + &quot;//&quot; + white.GetKorgols() + &quot;,&quot; + black.GetKorgols();</span>
+
+    }
+
+    // getters and setters
+<span class="fc" id="L97">    public ArrayList&lt;Hole&gt; GetHoles(){return holes;}</span>
+<span class="fc" id="L98">    public Kazan GetWhiteKazan(){ return white;}</span>
+<span class="fc" id="L99">    public Kazan GetBlackKazan(){ return black;}</span>
+
+    // equality override
+    // two configurations are equal if their setups are the same
+    public boolean equals(Configuration other) {
+
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if(!(white.GetKorgols() == other.GetWhiteKazan().GetKorgols())){</span>
+<span class="fc" id="L106">            return false;</span>
+        }
+
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if(!(black.GetKorgols() == other.GetBlackKazan().GetKorgols())){</span>
+<span class="nc" id="L110">            return false;</span>
+        }
+
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        for(int i = 0; i &lt; holes.size(); i++){</span>
+
+<span class="pc bpc" id="L115" title="2 of 4 branches missed.">            if(i &gt; other.GetHoles().size() || i &gt; holes.size()){</span>
+<span class="nc" id="L116">                return false;</span>
+            }
+
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if(holes.get(i).GetKorgols() != other.GetHoles().get(i).GetKorgols()){</span>
+<span class="nc" id="L120">                return false;</span>
+            }
+
+        }
+
+<span class="fc" id="L125">        return true;</span>
+
+    }
+
+    // ------------------------
+
+    // list of configurations loaded at any given time
+<span class="fc" id="L132">    public static ArrayList&lt;Configuration&gt; configs = new ArrayList&lt;&gt;();</span>
+
+    // adds a configuration to the list of current configurations
+    // @param: a configuration to add
+    // @return: void
+    public static void AddToList(Configuration config){
+
+        // loop over configurations to check if it exists
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        for(Configuration c : configs){</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            if(c.equals(config)){</span>
+<span class="fc" id="L142">                return;</span>
+            }
+<span class="fc" id="L144">        }</span>
+
+<span class="fc" id="L146">        configs.add(config);</span>
+
+<span class="fc" id="L148">    }</span>
+
+    // loads configs from a sav file and populates the above list
+    // @param: void
+    // @return: a message on the success status of the load
+    public static String LoadConfigs(){
+
+        // prep static list for population
+<span class="fc" id="L156">        configs.clear();</span>
+
+        // get path to saves/tgkg.sav
+<span class="fc" id="L159">        String path = &quot;saves/tgkg.sav&quot;;</span>
+<span class="fc" id="L160">        File sav = new File(path);</span>
+
+        // create input stream from given file
+        FileInputStream fstream;
+        try {
+<span class="fc" id="L165">            fstream = new FileInputStream(sav);</span>
+<span class="nc" id="L166">        } catch (FileNotFoundException e){</span>
+<span class="nc" id="L167">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
+<span class="fc" id="L168">        }</span>
+
+        // create reder to read lines of file
+<span class="fc" id="L171">        BufferedReader reader = new BufferedReader(new InputStreamReader(fstream));</span>
+        try {
+<span class="fc bfc" id="L173" title="All 2 branches covered.">            while (reader.ready()) {</span>
+<span class="fc" id="L174">                String line = reader.readLine();</span>
+                // creates a new configuration and adds it to the list if it is not duplicate
+<span class="fc" id="L176">                Configuration config = new Configuration(line);</span>
+<span class="fc" id="L177">            }</span>
+<span class="nc" id="L178">        } catch (IOException e){</span>
+
+<span class="fc" id="L180">        }</span>
+
+<span class="fc" id="L182">        return &quot;Load successful: &quot; + configs.size() + &quot; configurations loaded.&quot;;</span>
+
+    }
+
+    // saves the current set of configurations into the save file
+    // @param: void
+    // @return: a message on the success status of the save
+    public static String SaveConfigs(){
+
+        // array list to be filled with parsed versions of current configs
+<span class="fc" id="L192">        List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">        for(Configuration config : configs){</span>
+            // parse config into string
+<span class="fc" id="L195">            lines.add(config.Parse());</span>
+<span class="fc" id="L196">        }</span>
+        // clear list of invalid configurations
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">        lines.removeIf(p -&gt; p == &quot;&quot;);</span>
+
+        // get path to saves/tgkg.sav
+<span class="fc" id="L201">        String path = &quot;saves/tgkg.sav&quot;;</span>
+<span class="fc" id="L202">        File sav = new File(path);</span>
+
+        // attempt to create print writer using above file
+        PrintWriter writer;
+        try {
+<span class="fc" id="L207">            writer = new PrintWriter(sav);</span>
+<span class="nc" id="L208">        } catch (FileNotFoundException e){</span>
+<span class="nc" id="L209">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
+<span class="fc" id="L210">        }</span>
+
+        // write new config strings to save file
+<span class="fc bfc" id="L213" title="All 2 branches covered.">        for(String line : lines){</span>
+<span class="fc" id="L214">            writer.println(line);</span>
+<span class="fc" id="L215">        }</span>
+<span class="fc" id="L216">        writer.close();</span>
+
+<span class="fc" id="L218">        return &quot;Save successful: &quot; + lines.size() + &quot; configurations saved.&quot;;</span>
+
+    }
+
+    // sets up the project directory to accomodate for a sav file
+    // @param: void
+    // @return: boolean determining whether the setup succeeded or failed
+    public static boolean Setup(){
+
+<span class="fc" id="L227">        File file = new File(&quot;saves/tgkg.sav&quot;);</span>
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">        if(!file.exists()){</span>
+<span class="nc" id="L229">            file.getParentFile().mkdir();</span>
+            try {
+<span class="nc" id="L231">                file.createNewFile();</span>
+<span class="nc" id="L232">            } catch (IOException e){</span>
+<span class="nc" id="L233">                return false;</span>
+<span class="nc" id="L234">            }</span>
+        }
+
+<span class="fc" id="L237">        return true;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
