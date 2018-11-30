@@ -9,7 +9,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/basic.fxml"));
+        loader.setLocation(getClass().getResource("/main.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         primaryStage.setTitle("Hello World");
