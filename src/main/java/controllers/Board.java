@@ -18,10 +18,10 @@ public class Board {
     }
 
     Board(Configuration config) {
-        playerOneKazan = config.GetBlackKazan();
-        playerTwoKazan = config.GetWhiteKazan();
+        playerOneKazan = config.getBlackKazan();
+        playerTwoKazan = config.getWhiteKazan();
         for (int i = 0; i<18; i++) {
-            Hole holeToAdd = config.GetHoles().get(i);
+            Hole holeToAdd = config.getHoles().get(i);
             board.add(new Hole(holeToAdd.getKorgols()));
         }
     }
@@ -43,6 +43,27 @@ public class Board {
             finalHole.clear();
         }
         else {}
+    }
+
+    // a 'shadow' move method that alters a given board to give you a
+    // predicted state after said move, does not alter Kazans
+    public static ArrayList<Hole> move(int holeIndex, ArrayList<Hole> shadowBoard, boolean all) {
+        ArrayList<Hole> result = new ArrayList<Hole>(shadowBoard);
+        Hole targetHole = result.get(holeIndex);
+
+        int ballsToMove = targetHole.getKorgols();
+        int targetHoleIndex = result.indexOf(targetHole);
+        targetHole.clear();
+        Hole finalHole = result.get((targetHoleIndex + ballsToMove - 1) % 18);
+        for (int i = targetHoleIndex; i < (targetHoleIndex + ballsToMove); i++) {
+            result.get(i % 18).addKorgol();
+        }
+        if(all){
+        } else {
+            result.clear();
+            result.add(finalHole);
+        }
+        return result;
     }
 
 

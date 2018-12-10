@@ -19,11 +19,11 @@ public class Game extends Application {
     }
 
     public static void main(String[] args) {
-        if(Configuration.Setup()){
+        if(Configuration.setup()){
             launch(args);
         } else {
             // error message
-            System.out.println(Configuration.LoadConfigs());
+            System.out.println(Configuration.loadConfigs());
         }
     }
 

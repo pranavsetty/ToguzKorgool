@@ -4,6 +4,7 @@ public class Hole {
 
     private int korgols;
     private boolean tuz;
+    private Seat seat;
 
     public Hole(int input){
         korgols = input;
@@ -24,5 +25,7 @@ public class Hole {
         if (korgols%2==0){return true;}
         else {return false;}
     }
+
+    public Seat getSeat(){ return seat; }
 
 }

@@ -18,13 +18,13 @@ public class Configuration {
 
     // constructor
     public Configuration(String sav){
-        Parse(sav);
+        parse(sav);
     }
 
     // tries to parse a given input line to an arraylist of holes
     // @param: an input String of the format '-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-//-,-'
     // @return: a boolean that returns false if the parsing failed
-    private boolean Parse(String input){
+    private boolean parse(String input){
 
         // check for valid string structure
         if(!input.contains("//")){
@@ -63,15 +63,15 @@ public class Configuration {
         // check for valid korgol amount
         int sum = 0;
         for(Hole h : holes){
-            sum += h.GetKorgols();
+            sum += h.getKorgols();
         }
-        sum += (GetBlackKazan().GetKorgols() + GetWhiteKazan().GetKorgols());
+        sum += (getBlackKazan().GetKorgols() + getWhiteKazan().GetKorgols());
 
         if(sum != TOTALKORGOLS){
             return false;
         }
 
-        AddToList(this);
+        addToList(this);
         return true;
 
     }
@@ -79,14 +79,14 @@ public class Configuration {
     // tries to parse this given configuration into a saveable string
     // @param: void
     // @return: a string to save
-    public String Parse(){
+    public String parse(){
 
         // setup separate strings
         String line = "";
 
         // loop over all holes
         for(Hole hole : holes){
-            line += (hole.GetKorgols() + ",");
+            line += (hole.getKorgols() + ",");
         }
 
         return line.substring(0, line.length() - 1) + "//" + white.GetKorgols() + "," + black.GetKorgols();
@@ -94,29 +94,29 @@ public class Configuration {
     }
 
     // getters and setters
-    public ArrayList<Hole> GetHoles(){return holes;}
-    public Kazan GetWhiteKazan(){ return white;}
-    public Kazan GetBlackKazan(){ return black;}
+    public ArrayList<Hole> getHoles(){return holes;}
+    public Kazan getWhiteKazan(){ return white;}
+    public Kazan getBlackKazan(){ return black;}
 
     // equality override
     // two configurations are equal if their setups are the same
     public boolean equals(Configuration other) {
 
-        if(!(white.GetKorgols() == other.GetWhiteKazan().GetKorgols())){
+        if(!(white.GetKorgols() == other.getWhiteKazan().GetKorgols())){
             return false;
         }
 
-        if(!(black.GetKorgols() == other.GetBlackKazan().GetKorgols())){
+        if(!(black.GetKorgols() == other.getBlackKazan().GetKorgols())){
             return false;
         }
 
         for(int i = 0; i < holes.size(); i++){
 
-            if(i > other.GetHoles().size() || i > holes.size()){
+            if(i > other.getHoles().size() || i > holes.size()){
                 return false;
             }
 
-            if(holes.get(i).GetKorgols() != other.GetHoles().get(i).GetKorgols()){
+            if(holes.get(i).getKorgols() != other.getHoles().get(i).getKorgols()){
                 return false;
             }
 
@@ -134,7 +134,7 @@ public class Configuration {
     // adds a configuration to the list of current configurations
     // @param: a configuration to add
     // @return: void
-    public static void AddToList(Configuration config){
+    public static void addToList(Configuration config){
 
         // loop over configurations to check if it exists
         for(Configuration c : configs){
@@ -150,7 +150,7 @@ public class Configuration {
     // loads configs from a sav file and populates the above list
     // @param: void
     // @return: a message on the success status of the load
-    public static String LoadConfigs(){
+    public static String loadConfigs(){
 
         // prep static list for population
         configs.clear();
@@ -186,13 +186,13 @@ public class Configuration {
     // saves the current set of configurations into the save file
     // @param: void
     // @return: a message on the success status of the save
-    public static String SaveConfigs(){
+    public static String saveConfigs(){
 
         // array list to be filled with parsed versions of current configs
         List<String> lines = new ArrayList<>();
         for(Configuration config : configs){
             // parse config into string
-            lines.add(config.Parse());
+            lines.add(config.parse());
         }
         // clear list of invalid configurations
         lines.removeIf(p -> p == "");
@@ -222,7 +222,7 @@ public class Configuration {
     // sets up the project directory to accomodate for a sav file
     // @param: void
     // @return: boolean determining whether the setup succeeded or failed
-    public static boolean Setup(){
+    public static boolean setup(){
 
         File file = new File("saves/tgkg.sav");
         if(!file.exists()){
