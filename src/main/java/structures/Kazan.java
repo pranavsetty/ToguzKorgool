@@ -17,7 +17,7 @@ public class Kazan {
 
     //Mutator method which adds an indefinite number of korgols to the Kazan
     public void addKorgols(int newKorgs){
-      korgols+=number;
+      korgols+=newKorgs;
     }
 
     public void clearKazan(){korgols = 0;}

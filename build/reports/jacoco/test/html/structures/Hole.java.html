@@ -2,13 +2,31 @@
 
 public class Hole {
 
-    int korgols;
+    private int korgols;
+    private boolean tuz;
+    private Seat seat;
 
-<span class="fc" id="L7">    public Hole(int input){</span>
-<span class="fc" id="L8">        korgols = input;</span>
-<span class="fc" id="L9">    }</span>
+<span class="fc" id="L9">    public Hole(int input){</span>
+<span class="fc" id="L10">        korgols = input;</span>
+<span class="fc" id="L11">        tuz = false;</span>
+<span class="fc" id="L12">    }</span>
 
-<span class="fc" id="L11">    public int GetKorgols(){return korgols;}</span>
+<span class="fc" id="L14">    public int getKorgols(){return korgols;}</span>
+
+<span class="nc" id="L16">    public boolean isTuz(){return tuz;}</span>
+
+<span class="nc" id="L18">    public void addKorgol() {korgols++;}</span>
+
+<span class="nc" id="L20">    public void addKorgols(int number) {korgols+=number;}</span>
+
+<span class="nc" id="L22">    public void clear() {korgols=0;}</span>
+
+    public boolean isEven() {
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (korgols%2==0){return true;}</span>
+<span class="nc" id="L26">        else {return false;}</span>
+    }
+
+<span class="nc" id="L29">    public Seat getSeat(){ return seat; }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

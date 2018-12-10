@@ -18,13 +18,13 @@ public class Configuration {
 
     // constructor
 <span class="fc" id="L20">    public Configuration(String sav){</span>
-<span class="fc" id="L21">        Parse(sav);</span>
+<span class="fc" id="L21">        parse(sav);</span>
 <span class="fc" id="L22">    }</span>
 
     // tries to parse a given input line to an arraylist of holes
     // @param: an input String of the format '-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-//-,-'
     // @return: a boolean that returns false if the parsing failed
-    private boolean Parse(String input){
+    private boolean parse(String input){
 
         // check for valid string structure
 <span class="fc bfc" id="L30" title="All 2 branches covered.">        if(!input.contains(&quot;//&quot;)){</span>
@@ -63,15 +63,15 @@ public class Configuration {
         // check for valid korgol amount
 <span class="fc" id="L64">        int sum = 0;</span>
 <span class="fc bfc" id="L65" title="All 2 branches covered.">        for(Hole h : holes){</span>
-<span class="fc" id="L66">            sum += h.GetKorgols();</span>
+<span class="fc" id="L66">            sum += h.getKorgols();</span>
 <span class="fc" id="L67">        }</span>
-<span class="fc" id="L68">        sum += (GetBlackKazan().GetKorgols() + GetWhiteKazan().GetKorgols());</span>
+<span class="fc" id="L68">        sum += (getBlackKazan().GetKorgols() + getWhiteKazan().GetKorgols());</span>
 
 <span class="fc bfc" id="L70" title="All 2 branches covered.">        if(sum != TOTALKORGOLS){</span>
 <span class="fc" id="L71">            return false;</span>
         }
 
-<span class="fc" id="L74">        AddToList(this);</span>
+<span class="fc" id="L74">        addToList(this);</span>
 <span class="fc" id="L75">        return true;</span>
 
     }
@@ -79,14 +79,14 @@ public class Configuration {
     // tries to parse this given configuration into a saveable string
     // @param: void
     // @return: a string to save
-    public String Parse(){
+    public String parse(){
 
         // setup separate strings
 <span class="fc" id="L85">        String line = &quot;&quot;;</span>
 
         // loop over all holes
 <span class="fc bfc" id="L88" title="All 2 branches covered.">        for(Hole hole : holes){</span>
-<span class="fc" id="L89">            line += (hole.GetKorgols() + &quot;,&quot;);</span>
+<span class="fc" id="L89">            line += (hole.getKorgols() + &quot;,&quot;);</span>
 <span class="fc" id="L90">        }</span>
 
 <span class="fc" id="L92">        return line.substring(0, line.length() - 1) + &quot;//&quot; + white.GetKorgols() + &quot;,&quot; + black.GetKorgols();</span>
@@ -94,29 +94,29 @@ public class Configuration {
     }
 
     // getters and setters
-<span class="fc" id="L97">    public ArrayList&lt;Hole&gt; GetHoles(){return holes;}</span>
-<span class="fc" id="L98">    public Kazan GetWhiteKazan(){ return white;}</span>
-<span class="fc" id="L99">    public Kazan GetBlackKazan(){ return black;}</span>
+<span class="fc" id="L97">    public ArrayList&lt;Hole&gt; getHoles(){return holes;}</span>
+<span class="fc" id="L98">    public Kazan getWhiteKazan(){ return white;}</span>
+<span class="fc" id="L99">    public Kazan getBlackKazan(){ return black;}</span>
 
     // equality override
     // two configurations are equal if their setups are the same
     public boolean equals(Configuration other) {
 
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        if(!(white.GetKorgols() == other.GetWhiteKazan().GetKorgols())){</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if(!(white.GetKorgols() == other.getWhiteKazan().GetKorgols())){</span>
 <span class="fc" id="L106">            return false;</span>
         }
 
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if(!(black.GetKorgols() == other.GetBlackKazan().GetKorgols())){</span>
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if(!(black.GetKorgols() == other.getBlackKazan().GetKorgols())){</span>
 <span class="nc" id="L110">            return false;</span>
         }
 
 <span class="fc bfc" id="L113" title="All 2 branches covered.">        for(int i = 0; i &lt; holes.size(); i++){</span>
 
-<span class="pc bpc" id="L115" title="2 of 4 branches missed.">            if(i &gt; other.GetHoles().size() || i &gt; holes.size()){</span>
+<span class="pc bpc" id="L115" title="2 of 4 branches missed.">            if(i &gt; other.getHoles().size() || i &gt; holes.size()){</span>
 <span class="nc" id="L116">                return false;</span>
             }
 
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if(holes.get(i).GetKorgols() != other.GetHoles().get(i).GetKorgols()){</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if(holes.get(i).getKorgols() != other.getHoles().get(i).getKorgols()){</span>
 <span class="nc" id="L120">                return false;</span>
             }
 
@@ -134,7 +134,7 @@ public class Configuration {
     // adds a configuration to the list of current configurations
     // @param: a configuration to add
     // @return: void
-    public static void AddToList(Configuration config){
+    public static void addToList(Configuration config){
 
         // loop over configurations to check if it exists
 <span class="fc bfc" id="L140" title="All 2 branches covered.">        for(Configuration c : configs){</span>
@@ -150,7 +150,7 @@ public class Configuration {
     // loads configs from a sav file and populates the above list
     // @param: void
     // @return: a message on the success status of the load
-    public static String LoadConfigs(){
+    public static String loadConfigs(){
 
         // prep static list for population
 <span class="fc" id="L156">        configs.clear();</span>
@@ -186,13 +186,13 @@ public class Configuration {
     // saves the current set of configurations into the save file
     // @param: void
     // @return: a message on the success status of the save
-    public static String SaveConfigs(){
+    public static String saveConfigs(){
 
         // array list to be filled with parsed versions of current configs
 <span class="fc" id="L192">        List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
 <span class="fc bfc" id="L193" title="All 2 branches covered.">        for(Configuration config : configs){</span>
             // parse config into string
-<span class="fc" id="L195">            lines.add(config.Parse());</span>
+<span class="fc" id="L195">            lines.add(config.parse());</span>
 <span class="fc" id="L196">        }</span>
         // clear list of invalid configurations
 <span class="pc bpc" id="L198" title="1 of 2 branches missed.">        lines.removeIf(p -&gt; p == &quot;&quot;);</span>
@@ -222,7 +222,7 @@ public class Configuration {
     // sets up the project directory to accomodate for a sav file
     // @param: void
     // @return: boolean determining whether the setup succeeded or failed
-    public static boolean Setup(){
+    public static boolean setup(){
 
 <span class="fc" id="L227">        File file = new File(&quot;saves/tgkg.sav&quot;);</span>
 <span class="pc bpc" id="L228" title="1 of 2 branches missed.">        if(!file.exists()){</span>

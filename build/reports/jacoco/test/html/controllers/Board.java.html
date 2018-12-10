@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Board.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">toguz_korgool</a> &gt; <a href="index.source.html" class="el_package">controllers</a> &gt; <span class="el_source">Board.java</span></div><h1>Board.java</h1><pre class="source lang-java linenums">package controllers;
 
-<span class="nc" id="L3">public class Board {</span>
+import structures.Configuration;
+import structures.Hole;
+import structures.Kazan;
+
+import java.util.ArrayList;
+
+public class Board {
+<span class="nc" id="L10">    private ArrayList&lt;Hole&gt; board = new ArrayList&lt;Hole&gt;(18);</span>
+    private Kazan playerOneKazan;
+    private Kazan playerTwoKazan;
+
+<span class="nc" id="L14">    Board() {</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int i = 0; i &lt; 18; i++) {</span>
+<span class="nc" id="L16">            board.add(new Hole(9));</span>
+        }
+<span class="nc" id="L18">    }</span>
+
+<span class="nc" id="L20">    Board(Configuration config) {</span>
+<span class="nc" id="L21">        playerOneKazan = config.getBlackKazan();</span>
+<span class="nc" id="L22">        playerTwoKazan = config.getWhiteKazan();</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i&lt;18; i++) {</span>
+<span class="nc" id="L24">            Hole holeToAdd = config.getHoles().get(i);</span>
+<span class="nc" id="L25">            board.add(new Hole(holeToAdd.getKorgols()));</span>
+        }
+<span class="nc" id="L27">    }</span>
+
+    public void move(Hole targetHole) {
+<span class="nc" id="L30">        int ballsToMove = targetHole.getKorgols();</span>
+<span class="nc" id="L31">        int targetHoleIndex = board.indexOf(targetHole);</span>
+<span class="nc" id="L32">        targetHole.clear();</span>
+<span class="nc" id="L33">        Hole finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        for (int i = targetHoleIndex; i &lt; (targetHoleIndex + ballsToMove); i++) {</span>
+<span class="nc" id="L35">            board.get(i % 18).addKorgol();</span>
+        }
+<span class="nc bnc" id="L37" title="All 6 branches missed.">        if (board.indexOf(targetHole) &lt; 9 &amp;&amp; board.indexOf(finalHole) &gt;= 9 &amp;&amp; finalHole.isEven()) {</span>
+<span class="nc" id="L38">            playerOneKazan.addKorgols(finalHole.getKorgols());</span>
+<span class="nc" id="L39">            finalHole.clear();</span>
+        }
+<span class="nc bnc" id="L41" title="All 6 branches missed.">        else if (board.indexOf(targetHole) &gt;= 9 &amp;&amp; board.indexOf(finalHole) &lt; 9 &amp;&amp; finalHole.isEven()) {</span>
+<span class="nc" id="L42">            playerOneKazan.addKorgols(finalHole.getKorgols());</span>
+<span class="nc" id="L43">            finalHole.clear();</span>
+        }
+        else {}
+<span class="nc" id="L46">    }</span>
+
+    // a 'shadow' move method that alters a given board to give you a
+    // predicted state after said move, does not alter Kazans
+    public static ArrayList&lt;Hole&gt; move(int holeIndex, ArrayList&lt;Hole&gt; shadowBoard, boolean all) {
+<span class="nc" id="L51">        ArrayList&lt;Hole&gt; result = new ArrayList&lt;Hole&gt;(shadowBoard);</span>
+<span class="nc" id="L52">        Hole targetHole = result.get(holeIndex);</span>
+
+<span class="nc" id="L54">        int ballsToMove = targetHole.getKorgols();</span>
+<span class="nc" id="L55">        int targetHoleIndex = result.indexOf(targetHole);</span>
+<span class="nc" id="L56">        targetHole.clear();</span>
+<span class="nc" id="L57">        Hole finalHole = result.get((targetHoleIndex + ballsToMove - 1) % 18);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        for (int i = targetHoleIndex; i &lt; (targetHoleIndex + ballsToMove); i++) {</span>
+<span class="nc" id="L59">            result.get(i % 18).addKorgol();</span>
+        }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if(all){</span>
+        } else {
+<span class="nc" id="L63">            result.clear();</span>
+<span class="nc" id="L64">            result.add(finalHole);</span>
+        }
+<span class="nc" id="L66">        return result;</span>
+    }
+
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

@@ -4,12 +4,24 @@ public class Kazan {
 
     int korgols;
 
-<span class="fc" id="L7">    public Kazan(int input){</span>
-<span class="fc" id="L8">        korgols = input;</span>
-<span class="fc" id="L9">    }</span>
+    //Constructor which creates a Kazan with &quot;input Korgols&quot;
+<span class="fc" id="L8">    public Kazan(int input){</span>
+<span class="fc" id="L9">        korgols = input;</span>
+<span class="fc" id="L10">    }</span>
 
-<span class="fc" id="L11">    public int GetKorgols(){return korgols;}</span>
+    //Accessor method for number of korgols in Kazan
+<span class="fc" id="L13">    public int GetKorgols(){return korgols;}</span>
 
+    //Mutator method which adds one korgol to the Kazan
+<span class="nc" id="L16">    public void addKorgol(){korgols++;}</span>
+
+    //Mutator method which adds an indefinite number of korgols to the Kazan
+    public void addKorgols(int newKorgs){
+<span class="nc" id="L20">      korgols+=newKorgs;</span>
+<span class="nc" id="L21">    }</span>
+
+<span class="nc" id="L23">    public void clearKazan(){korgols = 0;}</span>
+    
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
