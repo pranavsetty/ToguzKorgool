@@ -3,11 +3,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import structures.*;
 
 public class Game extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main.fxml"));
         loader.setController(this);
@@ -17,8 +18,13 @@ public class Game extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
-        launch(args);
+        if(Configuration.setup()){
+            launch(args);
+        } else {
+            // error message
+            System.out.println(Configuration.loadConfigs());
+        }
     }
+
 }
