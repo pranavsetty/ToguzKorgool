@@ -1,7 +1,8 @@
-package controllers;
+package structures;
 
-import structures.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 
 public class AI {
 
@@ -12,10 +13,24 @@ public class AI {
 
     // the type of AI it is, defines its behaviour: aggressive, defensive or wild
     private  AIType type;
-    // whether it is playing on white or black
+    // assuming seat of AI is always black
     private Seat seat = Seat.BLACK;
     // whether they can change their playstyle mid game
     private boolean dynamic;
+    // AI random
+    private Random r;
+
+    // constructor
+    // @param: type of AI and whether or not it can change mid game
+    // @return: AI
+    public AI(AIType type, boolean dynamic){
+
+        this.type = type;
+        this.seat = seat;
+        this.dynamic = dynamic;
+        r = new Random();
+
+    }
 
     // evaluates the board and picks a 'decent' hole
     // @param: the current state of the board
@@ -27,27 +42,24 @@ public class AI {
             moodChange();
         }
 
-        // defensive AI tries first to reduce the number of holes on their side of the board
-        // that can provide positive benefits to the player
-        // first looking to elimate any nearTuz Holes and then any Holes with odd Korgols
-
         switch(type) {
+
             case DEF:
-                // find an ideal set of defensive choices using a hashmap that records the number of unideal
+
+                // find an ideal set of defensive choices using a list that records the number of unideal
                 // results from using each hole, an undeal result here is defined as
                 // a result the opposing player can take advantage of
                 ArrayList<HoleWeight> def = new ArrayList<>();
-                System.out.println(board.size());
+
+                // get all possible threats from each of the AI's holes
                 for (Hole hole : board) {
-                    if (hole.getSeat() == seat) {
-                        def.add(new HoleWeight(hole, threats(hole, new ArrayList<>(board))));
+                    if (hole.getSeat() == seat && !hole.isEmpty()) {
+                        def.add(new HoleWeight(hole, threats(hole, board)));
                     }
                 }
-                for(HoleWeight we : def){
-                    System.out.println("Hole:" + board.indexOf(we.getHole()) + " : " + we.getWeight());
-                }
-                HoleWeight idealDef = null;
+
                 // iterates assuming that moving a later Hole is always better than moving an earlier hole
+                HoleWeight idealDef = null;
                 Iterator itd = def.iterator();
                 while (itd.hasNext()) {
                     HoleWeight hw = (HoleWeight)itd.next();
@@ -56,26 +68,28 @@ public class AI {
                     }
                 }
                 return idealDef.getHole();
+
             case WILD:
+
                 // completely random
-                Random r = new Random();
                 return board.get(r.nextInt(board.size()));
+
             case AGG:
-                // find an ideal set of offensive choices using a hashmap that records the number of ideal
+
+                // find an ideal set of offensive choices using a list that records the number of ideal
                 // results from using each hole, an ideal result here is defined as
                 // a result that yields the most possible korgols
                 ArrayList<HoleWeight> agg = new ArrayList<>();
-                System.out.println(board.size());
+
+                // get all possible opportunities from each of the AI's holes
                 for (Hole hole : board) {
-                    if (hole.getSeat() == seat) {
-                        agg.add(new HoleWeight(hole, opportunities(hole, new ArrayList<>(board))));
+                    if (hole.getSeat() == seat && !hole.isEmpty()) {
+                        agg.add(new HoleWeight(hole, opportunities(hole, board)));
                     }
                 }
-                for(HoleWeight we : agg){
-                    System.out.println("Hole:" + board.indexOf(we.getHole()) + " : " + we.getWeight());
-                }
-                HoleWeight idealAgg = null;
+
                 // iterates assuming that moving an earlier Hole is always better than moving a later hole
+                HoleWeight idealAgg = null;
                 Iterator ita = agg.iterator();
                 while (ita.hasNext()) {
                     HoleWeight hw = (HoleWeight)ita.next();
@@ -83,9 +97,8 @@ public class AI {
                         idealAgg = hw;
                     }
                 }
-                System.out.println(idealAgg.getHole().getKorgols());
-                System.out.println(board.indexOf(idealAgg.getHole()));
                 return idealAgg.getHole();
+
         }
 
         // AI not setup correctly
@@ -93,17 +106,11 @@ public class AI {
 
     }
 
-    public AI(AIType type, boolean dynamic){
-
-        this.type = type;
-        this.seat = seat;
-        this.dynamic = dynamic;
-
-    }
-
+    // method to change the type of a given AI to another random type (can be the same)
+    // @param: void
+    // @return: void
     private void moodChange(){
 
-        Random r = new Random();
         double choice = r.nextDouble();
         if(choice <= MOODCHANGEWEIGHT){
             type = AIType.getRandom();
@@ -111,7 +118,9 @@ public class AI {
 
     }
 
-
+    // method to find the number of threats (number of odd holes on an AI's side of the board)
+    // @param: a potential target hole to move from and state of the holes
+    // @return: the number of threats for that given choice
     private int threats(Hole target, ArrayList<Hole> board){
 
         ArrayList<Hole> futureBoard = Board.move(board.indexOf(target), board, true);
@@ -129,14 +138,16 @@ public class AI {
 
     }
 
+    // method to find the largest opportunity (the choice of hole that would yield the greatest pickup)
+    // @param: a potential target hole to move from and state of the holes
+    // @return: the potential pickup from selecting said hole
     private int opportunities(Hole target, ArrayList<Hole> board){
 
-        ArrayList<Hole> futureLastHole = Board.move(board.indexOf(target), new ArrayList<>(board), false);
+        ArrayList<Hole> futureLastHole = Board.move(board.indexOf(target), board, false);
         int opp = 0;
         if(futureLastHole.get(0).isEven() && futureLastHole.get(0).getSeat() != seat){
             opp = futureLastHole.get(0).getKorgols();
         }
-        //System.out.println(opp);
         return opp;
 
     }

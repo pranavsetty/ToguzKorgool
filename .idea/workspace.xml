@@ -2,65 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec34ae6f-4ce4-4a98-9b36-41d4e290e356" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/structures/HoleWeight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controllers/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controllers/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controllers/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controllers/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/structures/Hole.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/structures/Hole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/build/jacoco/test.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI$1.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI$1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/AI.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/Board.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/Board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/Board.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/Board.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/controllers/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/Game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/Game.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/Game.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/default/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-sessions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/AIType.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/AIType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/AIType.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/AIType.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Configuration.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Configuration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Configuration.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Configuration.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Hole.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Hole.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Hole.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Hole.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Seat.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Seat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Seat.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/Seat.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/structures/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/ConfigurationTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/ConfigurationTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ConfigurationTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-ConfigurationTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/controllers/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/structures/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/structures/Configuration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/AI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/AI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/Board.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/structures/Hole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/structures/Hole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/structures/Kazan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/structures/Kazan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ConfigurationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/ConfigurationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/AITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/AITest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/structures/Hole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/Hole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AITest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -154,14 +107,14 @@
         <counts>
           <entry key="fxml" value="35" />
           <entry key="gradle" value="208" />
-          <entry key="java" value="24736" />
+          <entry key="java" value="25921" />
           <entry key="txt" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="208" />
-          <entry key="JAVA" value="24736" />
+          <entry key="JAVA" value="25921" />
           <entry key="PLAIN_TEXT" value="37" />
           <entry key="XML" value="35" />
         </counts>
@@ -170,14 +123,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Board.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/structures/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="140">
+              <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -185,7 +135,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ConfigurationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-629">
+            <state relative-caret-position="-833">
               <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -194,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+            <state relative-caret-position="467">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -219,10 +169,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-507">
-              <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1484#1485#0" expanded="true" />
@@ -233,10 +183,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AI.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/structures/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+            <state relative-caret-position="1156">
+              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -256,8 +206,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/Hole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="187">
+              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -681,10 +631,13 @@
         <option value="$PROJECT_DIR$/src/main/java/structures/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/HoleWeight.java" />
-        <option value="$PROJECT_DIR$/src/main/java/structures/Hole.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/AI.java" />
         <option value="$PROJECT_DIR$/src/test/java/AITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/structures/Hole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/structures/AI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/structures/Board.java" />
       </list>
     </option>
   </component>
@@ -706,41 +659,6 @@
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
               <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
-              <item name="jacoco" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
-              <item name="jacoco" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
-              <item name="jacoco" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
@@ -776,19 +694,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="structures" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -798,7 +703,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544562166596" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544563195275" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/commons-io-2.6.jar!/" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -969,9 +874,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITest - 2018.12.11 at 20h 37m 08s.xml">
-      <configuration name="AITest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AITest - 2018.12.11 at 20h 38m 07s.xml">
       <configuration name="AITest" configurationId="JUnit" />
     </history-entry>
@@ -999,6 +901,9 @@
     <history-entry file="AITest - 2018.12.11 at 20h 58m 38s.xml">
       <configuration name="AITest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AITest - 2018.12.11 at 21h 19m 30s.xml">
+      <configuration name="AITest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1013,7 +918,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21641791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1022,13 +927,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49781182" weight="0.32914045" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.80744684" weight="0.32606438" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.80744684" visible="true" weight="0.32606438" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4991511" weight="0.3956386" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.3281412" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989059" weight="0.3281412" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49521276" visible="true" weight="0.32087228" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49521276" weight="0.32087228" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.19255319" side_tool="true" weight="0.32678387" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3281412" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4989059" weight="0.3281412" />
@@ -1081,21 +986,6 @@
     <MESSAGE value="Cleanup" />
     <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" log-stack="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controllers/AI.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java" />
     <entry file="file://$PROJECT_DIR$/build/jfx/app/tgkg.sav" />
@@ -1127,17 +1017,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build/reports/jacoco/test/html/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/structures/Hole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        <state relative-caret-position="187">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Configuration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1151,40 +1044,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ConfigurationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1484#1485#0" expanded="true" />
@@ -1193,16 +1056,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/reports/jacoco/test/html/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/AITest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        <state relative-caret-position="-1751">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ConfigurationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-833">
+          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
         </state>
       </provider>
     </entry>

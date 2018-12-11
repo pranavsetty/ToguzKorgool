@@ -1,9 +1,4 @@
-package controllers;
-
-import structures.Configuration;
-import structures.Hole;
-import structures.Kazan;
-import structures.Seat;
+package structures;
 
 import java.util.ArrayList;
 
@@ -62,37 +57,30 @@ public class Board {
 
     // a 'shadow' move method that alters a given board to give you a
     // predicted state after said move, does not alter Kazans
-    public static ArrayList<Hole> move(int holeIndex, ArrayList<Hole> shadowBoard, boolean all) {
+    public static ArrayList<Hole> move(int holeIndex, ArrayList<Hole> board, boolean all) {
 
-        ArrayList<Hole> result = new ArrayList<Hole>();
-        for(Hole h : shadowBoard){
-            result.add(new Hole(h.getKorgols()).setSeat(h.getSeat()));
+        ArrayList<Hole> shadowBoard = new ArrayList<Hole>();
+        for(Hole h : board){
+            shadowBoard.add(new Hole(h.getKorgols()).setSeat(h.getSeat()));
         }
 
-
-
-        Hole targetHole = result.get(holeIndex);
-
-        System.out.println(result == shadowBoard);
+        Hole targetHole = shadowBoard.get(holeIndex);
 
         int ballsToMove = targetHole.getKorgols();
-        int targetHoleIndex = result.indexOf(targetHole);
+        int targetHoleIndex = shadowBoard.indexOf(targetHole);
         targetHole.clear();
-        Hole finalHole = result.get((targetHoleIndex + ballsToMove - 1) % 18);
+        Hole finalHole = shadowBoard.get((targetHoleIndex + ballsToMove - 1) % 18);
         for (int i = targetHoleIndex; i < (targetHoleIndex + ballsToMove); i++) {
-            result.get(i % 18).addKorgol();
+            shadowBoard.get(i % 18).addKorgol();
         }
 
-        for(Hole h : result){
-            System.out.println(result.indexOf(h) + " : " + h.getKorgols());
-        }
 
         if(all){
         } else {
-            result.clear();
-            result.add(finalHole);
+            shadowBoard.clear();
+            shadowBoard.add(finalHole);
         }
-        return new ArrayList<Hole>(result);
+        return shadowBoard;
     }
 
     public ArrayList<Hole> getHoles(){return board;}
@@ -108,17 +96,5 @@ public class Board {
         }
 
     }
-
-    public void print(){
-
-        for(Hole hole : board){
-
-            System.out.println(board.indexOf(hole) + " : " + hole.getKorgols());
-
-        }
-
-    }
-
-
 
 }

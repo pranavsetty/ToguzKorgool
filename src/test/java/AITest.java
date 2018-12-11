@@ -1,5 +1,5 @@
-import controllers.AI;
-import controllers.Board;
+import structures.AI;
+import structures.Board;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import structures.AIType;
@@ -65,6 +65,5 @@ public class AITest {
         assertNotNull(wild.evaluate(board.getHoles()));
 
     }
-
 
 }

@@ -1,5 +1,5 @@
-import controllers.AI;
-import controllers.Board;
+package controllers;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import structures.AIType;
-import structures.Configuration;
-import structures.Hole;
-import structures.Seat;
+import structures.*;
 
 public class Game extends Application {
 
