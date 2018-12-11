@@ -16,16 +16,13 @@ import structures.*;
 <span class="nc" id="L16">        primaryStage.setTitle(&quot;Hello World&quot;);</span>
 <span class="nc" id="L17">        primaryStage.setScene(new Scene(root, 300, 275));</span>
 <span class="nc" id="L18">        primaryStage.show();</span>
-<span class="nc" id="L19">    }</span>
-
-    public static void main(String[] args) {
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if(Configuration.setup()){</span>
-<span class="nc" id="L23">            launch(args);</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if(Configuration.setup()){</span>
+            //launch(args);
         } else {
             // error message
-<span class="nc" id="L26">            System.out.println(Configuration.loadConfigs());</span>
+<span class="nc" id="L23">            System.out.println(Configuration.loadConfigs());</span>
         }
-<span class="nc" id="L28">    }</span>
+<span class="nc" id="L25">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

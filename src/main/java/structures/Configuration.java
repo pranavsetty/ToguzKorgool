@@ -7,7 +7,7 @@ import java.util.List;
 public class Configuration {
 
     // legal amount
-    private static final int TOTALKORGOLS = 162;
+    public static final int TOTALKORGOLS = 162;
 
     // configuration for white and black side holes
     private ArrayList<Hole> holes = new ArrayList<Hole>(18);
@@ -90,6 +90,15 @@ public class Configuration {
         }
 
         return line.substring(0, line.length() - 1) + "//" + white.GetKorgols() + "," + black.GetKorgols();
+
+    }
+
+    // checks if a configuration is valid
+    // @param: void
+    // @return: a boolean
+    public boolean isValid(){
+
+        return configs.contains(this);
 
     }
 

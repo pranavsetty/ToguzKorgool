@@ -3,6 +3,7 @@ package controllers;
 import structures.Configuration;
 import structures.Hole;
 import structures.Kazan;
+import structures.Seat;
 
 import java.util.ArrayList;
 
@@ -11,13 +12,15 @@ public class Board {
     private Kazan playerOneKazan;
     private Kazan playerTwoKazan;
 
-    Board() {
+    public static final int WINAMOUNT = 82;
+
+    public Board() {
         for (int i = 0; i < 18; i++) {
             board.add(new Hole(9));
         }
     }
 
-    Board(Configuration config) {
+    public Board(Configuration config) {
         playerOneKazan = config.getBlackKazan();
         playerTwoKazan = config.getWhiteKazan();
         for (int i = 0; i<18; i++) {
@@ -26,7 +29,7 @@ public class Board {
         }
     }
 
-    public void move(Hole targetHole) {
+    public void move(Hole targetHole, Seat mover) {
         int ballsToMove = targetHole.getKorgols();
         int targetHoleIndex = board.indexOf(targetHole);
         targetHole.clear();
@@ -64,6 +67,20 @@ public class Board {
             result.add(finalHole);
         }
         return result;
+    }
+
+    public ArrayList<Hole> getHoles(){return board;}
+
+    public Seat hasWon(){
+
+        if(playerOneKazan.GetKorgols() == WINAMOUNT){
+            return Seat.BLACK;
+        } else if(playerTwoKazan.GetKorgols() == WINAMOUNT){
+            return Seat.WHITE;
+        } else {
+            return null;
+        }
+
     }
 
 
