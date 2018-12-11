@@ -37,22 +37,19 @@ public class Board {
     }
 
     public void move(Hole targetHole, Seat mover) {
-        int ballsToMove = targetHole.getKorgols();
-        int targetHoleIndex = board.indexOf(targetHole);
-        targetHole.clear();
-        Hole finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);
-        for (int i = targetHoleIndex; i < (targetHoleIndex + ballsToMove); i++) {
-            board.get(i % 18).addKorgol();
+        if (targetHole.getSeat() == Seat.WHITE) {
+            int ballsToMove = targetHole.getKorgols();
+            int targetHoleIndex = board.indexOf(targetHole);
+            targetHole.clear();
+            Hole finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);
+            for (int i = targetHoleIndex; i < (targetHoleIndex + ballsToMove); i++) {
+                board.get(i % 18).addKorgol();
+            }
+            if (finalHole.getSeat() == Seat.BLACK && finalHole.isEven()) {
+                playerOneKazan.addKorgols(finalHole.getKorgols());
+                finalHole.clear();
+            }
         }
-        if (board.indexOf(targetHole) < 9 && board.indexOf(finalHole) >= 9 && finalHole.isEven()) {
-            playerOneKazan.addKorgols(finalHole.getKorgols());
-            finalHole.clear();
-        }
-        else if (board.indexOf(targetHole) >= 9 && board.indexOf(finalHole) < 9 && finalHole.isEven()) {
-            playerOneKazan.addKorgols(finalHole.getKorgols());
-            finalHole.clear();
-        }
-        else {}
     }
 
     // a 'shadow' move method that alters a given board to give you a
