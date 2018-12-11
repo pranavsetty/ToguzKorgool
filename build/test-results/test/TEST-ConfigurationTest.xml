@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ConfigurationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-12-11T18:04:23" hostname="DESKTOP-MJVLCDE" time="0.023">
+<testsuite name="ConfigurationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-12-11T21:01:46" hostname="DESKTOP-MJVLCDE" time="0.015">
   <properties/>
-  <testcase name="TestDuplicate" classname="ConfigurationTest" time="0.001"/>
+  <testcase name="TestDuplicate" classname="ConfigurationTest" time="0.0"/>
   <testcase name="TestVerification" classname="ConfigurationTest" time="0.0"/>
-  <testcase name="TestSaveLoad" classname="ConfigurationTest" time="0.02"/>
-  <testcase name="TestStringLength" classname="ConfigurationTest" time="0.0"/>
-  <testcase name="TestNumberFormat" classname="ConfigurationTest" time="0.001"/>
+  <testcase name="TestSaveLoad" classname="ConfigurationTest" time="0.011"/>
+  <testcase name="TestStringLength" classname="ConfigurationTest" time="0.001"/>
+  <testcase name="TestNumberFormat" classname="ConfigurationTest" time="0.0"/>
   <testcase name="TestConstructor" classname="ConfigurationTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

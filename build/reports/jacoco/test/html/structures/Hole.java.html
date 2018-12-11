@@ -15,18 +15,25 @@ public class Hole {
 
 <span class="nc" id="L16">    public boolean isTuz(){return tuz;}</span>
 
-<span class="nc" id="L18">    public void addKorgol() {korgols++;}</span>
+<span class="fc" id="L18">    public void addKorgol() {korgols++;}</span>
 
 <span class="nc" id="L20">    public void addKorgols(int number) {korgols+=number;}</span>
 
-<span class="nc" id="L22">    public void clear() {korgols=0;}</span>
+<span class="fc" id="L22">    public void clear() {korgols=0;}</span>
 
     public boolean isEven() {
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (korgols%2==0){return true;}</span>
-<span class="nc" id="L26">        else {return false;}</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (korgols%2==0){return true;}</span>
+<span class="fc" id="L26">        else {return false;}</span>
     }
 
-<span class="nc" id="L29">    public Seat getSeat(){ return seat; }</span>
+    public Hole setSeat(Seat seat){
+
+<span class="fc" id="L31">        this.seat = seat;</span>
+<span class="fc" id="L32">        return this;</span>
+
+    }
+
+<span class="fc" id="L36">    public Seat getSeat(){ return seat; }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

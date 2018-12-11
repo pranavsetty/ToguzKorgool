@@ -7,7 +7,7 @@ import java.util.List;
 public class Configuration {
 
     // legal amount
-    private static final int TOTALKORGOLS = 162;
+    public static final int TOTALKORGOLS = 162;
 
     // configuration for white and black side holes
 <span class="fc" id="L13">    private ArrayList&lt;Hole&gt; holes = new ArrayList&lt;Hole&gt;(18);</span>
@@ -93,43 +93,52 @@ public class Configuration {
 
     }
 
+    // checks if a configuration is valid
+    // @param: void
+    // @return: a boolean
+    public boolean isValid(){
+
+<span class="nc" id="L101">        return configs.contains(this);</span>
+
+    }
+
     // getters and setters
-<span class="fc" id="L97">    public ArrayList&lt;Hole&gt; getHoles(){return holes;}</span>
-<span class="fc" id="L98">    public Kazan getWhiteKazan(){ return white;}</span>
-<span class="fc" id="L99">    public Kazan getBlackKazan(){ return black;}</span>
+<span class="fc" id="L106">    public ArrayList&lt;Hole&gt; getHoles(){return holes;}</span>
+<span class="fc" id="L107">    public Kazan getWhiteKazan(){ return white;}</span>
+<span class="fc" id="L108">    public Kazan getBlackKazan(){ return black;}</span>
 
     // equality override
     // two configurations are equal if their setups are the same
     public boolean equals(Configuration other) {
 
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        if(!(white.GetKorgols() == other.getWhiteKazan().GetKorgols())){</span>
-<span class="fc" id="L106">            return false;</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        if(!(white.GetKorgols() == other.getWhiteKazan().GetKorgols())){</span>
+<span class="fc" id="L115">            return false;</span>
         }
 
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if(!(black.GetKorgols() == other.getBlackKazan().GetKorgols())){</span>
-<span class="nc" id="L110">            return false;</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        if(!(black.GetKorgols() == other.getBlackKazan().GetKorgols())){</span>
+<span class="nc" id="L119">            return false;</span>
         }
 
-<span class="fc bfc" id="L113" title="All 2 branches covered.">        for(int i = 0; i &lt; holes.size(); i++){</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        for(int i = 0; i &lt; holes.size(); i++){</span>
 
-<span class="pc bpc" id="L115" title="2 of 4 branches missed.">            if(i &gt; other.getHoles().size() || i &gt; holes.size()){</span>
-<span class="nc" id="L116">                return false;</span>
+<span class="pc bpc" id="L124" title="2 of 4 branches missed.">            if(i &gt; other.getHoles().size() || i &gt; holes.size()){</span>
+<span class="nc" id="L125">                return false;</span>
             }
 
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if(holes.get(i).getKorgols() != other.getHoles().get(i).getKorgols()){</span>
-<span class="nc" id="L120">                return false;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">            if(holes.get(i).getKorgols() != other.getHoles().get(i).getKorgols()){</span>
+<span class="nc" id="L129">                return false;</span>
             }
 
         }
 
-<span class="fc" id="L125">        return true;</span>
+<span class="fc" id="L134">        return true;</span>
 
     }
 
     // ------------------------
 
     // list of configurations loaded at any given time
-<span class="fc" id="L132">    public static ArrayList&lt;Configuration&gt; configs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L141">    public static ArrayList&lt;Configuration&gt; configs = new ArrayList&lt;&gt;();</span>
 
     // adds a configuration to the list of current configurations
     // @param: a configuration to add
@@ -137,15 +146,15 @@ public class Configuration {
     public static void addToList(Configuration config){
 
         // loop over configurations to check if it exists
-<span class="fc bfc" id="L140" title="All 2 branches covered.">        for(Configuration c : configs){</span>
-<span class="fc bfc" id="L141" title="All 2 branches covered.">            if(c.equals(config)){</span>
-<span class="fc" id="L142">                return;</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        for(Configuration c : configs){</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">            if(c.equals(config)){</span>
+<span class="fc" id="L151">                return;</span>
             }
-<span class="fc" id="L144">        }</span>
+<span class="fc" id="L153">        }</span>
 
-<span class="fc" id="L146">        configs.add(config);</span>
+<span class="fc" id="L155">        configs.add(config);</span>
 
-<span class="fc" id="L148">    }</span>
+<span class="fc" id="L157">    }</span>
 
     // loads configs from a sav file and populates the above list
     // @param: void
@@ -153,33 +162,33 @@ public class Configuration {
     public static String loadConfigs(){
 
         // prep static list for population
-<span class="fc" id="L156">        configs.clear();</span>
+<span class="fc" id="L165">        configs.clear();</span>
 
         // get path to saves/tgkg.sav
-<span class="fc" id="L159">        String path = &quot;saves/tgkg.sav&quot;;</span>
-<span class="fc" id="L160">        File sav = new File(path);</span>
+<span class="fc" id="L168">        String path = &quot;saves/tgkg.sav&quot;;</span>
+<span class="fc" id="L169">        File sav = new File(path);</span>
 
         // create input stream from given file
         FileInputStream fstream;
         try {
-<span class="fc" id="L165">            fstream = new FileInputStream(sav);</span>
-<span class="nc" id="L166">        } catch (FileNotFoundException e){</span>
-<span class="nc" id="L167">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
-<span class="fc" id="L168">        }</span>
+<span class="fc" id="L174">            fstream = new FileInputStream(sav);</span>
+<span class="nc" id="L175">        } catch (FileNotFoundException e){</span>
+<span class="nc" id="L176">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
+<span class="fc" id="L177">        }</span>
 
         // create reder to read lines of file
-<span class="fc" id="L171">        BufferedReader reader = new BufferedReader(new InputStreamReader(fstream));</span>
+<span class="fc" id="L180">        BufferedReader reader = new BufferedReader(new InputStreamReader(fstream));</span>
         try {
-<span class="fc bfc" id="L173" title="All 2 branches covered.">            while (reader.ready()) {</span>
-<span class="fc" id="L174">                String line = reader.readLine();</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">            while (reader.ready()) {</span>
+<span class="fc" id="L183">                String line = reader.readLine();</span>
                 // creates a new configuration and adds it to the list if it is not duplicate
-<span class="fc" id="L176">                Configuration config = new Configuration(line);</span>
-<span class="fc" id="L177">            }</span>
-<span class="nc" id="L178">        } catch (IOException e){</span>
+<span class="fc" id="L185">                Configuration config = new Configuration(line);</span>
+<span class="fc" id="L186">            }</span>
+<span class="nc" id="L187">        } catch (IOException e){</span>
 
-<span class="fc" id="L180">        }</span>
+<span class="fc" id="L189">        }</span>
 
-<span class="fc" id="L182">        return &quot;Load successful: &quot; + configs.size() + &quot; configurations loaded.&quot;;</span>
+<span class="fc" id="L191">        return &quot;Load successful: &quot; + configs.size() + &quot; configurations loaded.&quot;;</span>
 
     }
 
@@ -189,33 +198,33 @@ public class Configuration {
     public static String saveConfigs(){
 
         // array list to be filled with parsed versions of current configs
-<span class="fc" id="L192">        List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L193" title="All 2 branches covered.">        for(Configuration config : configs){</span>
+<span class="fc" id="L201">        List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">        for(Configuration config : configs){</span>
             // parse config into string
-<span class="fc" id="L195">            lines.add(config.parse());</span>
-<span class="fc" id="L196">        }</span>
+<span class="fc" id="L204">            lines.add(config.parse());</span>
+<span class="fc" id="L205">        }</span>
         // clear list of invalid configurations
-<span class="pc bpc" id="L198" title="1 of 2 branches missed.">        lines.removeIf(p -&gt; p == &quot;&quot;);</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">        lines.removeIf(p -&gt; p == &quot;&quot;);</span>
 
         // get path to saves/tgkg.sav
-<span class="fc" id="L201">        String path = &quot;saves/tgkg.sav&quot;;</span>
-<span class="fc" id="L202">        File sav = new File(path);</span>
+<span class="fc" id="L210">        String path = &quot;saves/tgkg.sav&quot;;</span>
+<span class="fc" id="L211">        File sav = new File(path);</span>
 
         // attempt to create print writer using above file
         PrintWriter writer;
         try {
-<span class="fc" id="L207">            writer = new PrintWriter(sav);</span>
-<span class="nc" id="L208">        } catch (FileNotFoundException e){</span>
-<span class="nc" id="L209">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
-<span class="fc" id="L210">        }</span>
+<span class="fc" id="L216">            writer = new PrintWriter(sav);</span>
+<span class="nc" id="L217">        } catch (FileNotFoundException e){</span>
+<span class="nc" id="L218">            return &quot;No save file was found, please either reinstall the program or restart.&quot;;</span>
+<span class="fc" id="L219">        }</span>
 
         // write new config strings to save file
-<span class="fc bfc" id="L213" title="All 2 branches covered.">        for(String line : lines){</span>
-<span class="fc" id="L214">            writer.println(line);</span>
-<span class="fc" id="L215">        }</span>
-<span class="fc" id="L216">        writer.close();</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">        for(String line : lines){</span>
+<span class="fc" id="L223">            writer.println(line);</span>
+<span class="fc" id="L224">        }</span>
+<span class="fc" id="L225">        writer.close();</span>
 
-<span class="fc" id="L218">        return &quot;Save successful: &quot; + lines.size() + &quot; configurations saved.&quot;;</span>
+<span class="fc" id="L227">        return &quot;Save successful: &quot; + lines.size() + &quot; configurations saved.&quot;;</span>
 
     }
 
@@ -224,17 +233,17 @@ public class Configuration {
     // @return: boolean determining whether the setup succeeded or failed
     public static boolean setup(){
 
-<span class="fc" id="L227">        File file = new File(&quot;saves/tgkg.sav&quot;);</span>
-<span class="pc bpc" id="L228" title="1 of 2 branches missed.">        if(!file.exists()){</span>
-<span class="nc" id="L229">            file.getParentFile().mkdir();</span>
+<span class="fc" id="L236">        File file = new File(&quot;saves/tgkg.sav&quot;);</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">        if(!file.exists()){</span>
+<span class="nc" id="L238">            file.getParentFile().mkdir();</span>
             try {
-<span class="nc" id="L231">                file.createNewFile();</span>
-<span class="nc" id="L232">            } catch (IOException e){</span>
-<span class="nc" id="L233">                return false;</span>
-<span class="nc" id="L234">            }</span>
+<span class="nc" id="L240">                file.createNewFile();</span>
+<span class="nc" id="L241">            } catch (IOException e){</span>
+<span class="nc" id="L242">                return false;</span>
+<span class="nc" id="L243">            }</span>
         }
 
-<span class="fc" id="L237">        return true;</span>
+<span class="fc" id="L246">        return true;</span>
 
     }
 

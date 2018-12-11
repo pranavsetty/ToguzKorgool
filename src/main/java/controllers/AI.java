@@ -13,7 +13,7 @@ public class AI {
     // the type of AI it is, defines its behaviour: aggressive, defensive or wild
     private  AIType type;
     // whether it is playing on white or black
-    private Seat seat;
+    private Seat seat = Seat.BLACK;
     // whether they can change their playstyle mid game
     private boolean dynamic;
 
@@ -36,23 +36,26 @@ public class AI {
                 // find an ideal set of defensive choices using a hashmap that records the number of unideal
                 // results from using each hole, an undeal result here is defined as
                 // a result the opposing player can take advantage of
-                HashMap<Hole, Integer> def = new HashMap<>();
+                ArrayList<HoleWeight> def = new ArrayList<>();
+                System.out.println(board.size());
                 for (Hole hole : board) {
                     if (hole.getSeat() == seat) {
-                        def.put(hole, threats(hole, board));
+                        def.add(new HoleWeight(hole, threats(hole, new ArrayList<>(board))));
                     }
                 }
-                AbstractMap.SimpleEntry<Hole, Integer> idealDef = null;
+                for(HoleWeight we : def){
+                    System.out.println("Hole:" + board.indexOf(we.getHole()) + " : " + we.getWeight());
+                }
+                HoleWeight idealDef = null;
                 // iterates assuming that moving a later Hole is always better than moving an earlier hole
-                // (greater chance by definition to get korgols, even while on the defensive)
-                Iterator itd = def.entrySet().iterator();
+                Iterator itd = def.iterator();
                 while (itd.hasNext()) {
-                    Map.Entry pair = (Map.Entry) itd.next();
-                    if (idealDef == null || (Integer) pair.getValue() <= idealDef.getValue()) {
-                        idealDef = (AbstractMap.SimpleEntry<Hole, Integer>) pair;
+                    HoleWeight hw = (HoleWeight)itd.next();
+                    if (idealDef == null || hw.getWeight() <= idealDef.getWeight()) {
+                        idealDef = hw;
                     }
                 }
-                return idealDef.getKey();
+                return idealDef.getHole();
             case WILD:
                 // completely random
                 Random r = new Random();
@@ -61,22 +64,28 @@ public class AI {
                 // find an ideal set of offensive choices using a hashmap that records the number of ideal
                 // results from using each hole, an ideal result here is defined as
                 // a result that yields the most possible korgols
-                HashMap<Hole, Integer> agg = new HashMap<>();
+                ArrayList<HoleWeight> agg = new ArrayList<>();
+                System.out.println(board.size());
                 for (Hole hole : board) {
                     if (hole.getSeat() == seat) {
-                        agg.put(hole, opportunities(hole, board));
+                        agg.add(new HoleWeight(hole, opportunities(hole, new ArrayList<>(board))));
                     }
                 }
-                AbstractMap.SimpleEntry<Hole, Integer> idealAgg = null;
+                for(HoleWeight we : agg){
+                    System.out.println("Hole:" + board.indexOf(we.getHole()) + " : " + we.getWeight());
+                }
+                HoleWeight idealAgg = null;
                 // iterates assuming that moving an earlier Hole is always better than moving a later hole
-                Iterator ita = agg.entrySet().iterator();
+                Iterator ita = agg.iterator();
                 while (ita.hasNext()) {
-                    Map.Entry pair = (Map.Entry) ita.next();
-                    if (idealAgg == null || (Integer) pair.getValue() > idealAgg.getValue()) {
-                        idealAgg = (AbstractMap.SimpleEntry<Hole, Integer>) pair;
+                    HoleWeight hw = (HoleWeight)ita.next();
+                    if (idealAgg == null || hw.getWeight() > idealAgg.getWeight()) {
+                        idealAgg = hw;
                     }
                 }
-                return idealAgg.getKey();
+                System.out.println(idealAgg.getHole().getKorgols());
+                System.out.println(board.indexOf(idealAgg.getHole()));
+                return idealAgg.getHole();
         }
 
         // AI not setup correctly
@@ -84,7 +93,7 @@ public class AI {
 
     }
 
-    public AI(AIType type, Seat seat, boolean dynamic){
+    public AI(AIType type, boolean dynamic){
 
         this.type = type;
         this.seat = seat;
@@ -122,13 +131,18 @@ public class AI {
 
     private int opportunities(Hole target, ArrayList<Hole> board){
 
-        ArrayList<Hole> futureLastHole = Board.move(board.indexOf(target), board, false);
+        ArrayList<Hole> futureLastHole = Board.move(board.indexOf(target), new ArrayList<>(board), false);
         int opp = 0;
         if(futureLastHole.get(0).isEven() && futureLastHole.get(0).getSeat() != seat){
             opp = futureLastHole.get(0).getKorgols();
         }
+        //System.out.println(opp);
         return opp;
 
     }
+
+    // getters
+    public AIType getType(){return type;}
+    public boolean getDynamic(){return dynamic;}
 
 }

@@ -44,14 +44,14 @@ public class Game extends Application {
 
         inGame = true;
         board = new Board(config);
-        ai = new AI(AIType.DEF, Seat.BLACK, true);
+        ai = new AI(AIType.DEF, true);
 
     }
 
     public void play(){
 
         board = new Board();
-        ai = new AI(AIType.DEF, Seat.BLACK, true);
+        ai = new AI(AIType.DEF, true);
 
     }
 

@@ -16,7 +16,14 @@ public class Board {
 
     public Board() {
         for (int i = 0; i < 18; i++) {
-            board.add(new Hole(9));
+            Hole hole = new Hole(9);
+            board.add(hole);
+            if(i >= 0 && i < 9){
+                hole.setSeat(Seat.WHITE);
+            } else {
+                hole.setSeat(Seat.BLACK);
+            }
+
         }
     }
 
@@ -24,8 +31,13 @@ public class Board {
         playerOneKazan = config.getBlackKazan();
         playerTwoKazan = config.getWhiteKazan();
         for (int i = 0; i<18; i++) {
-            Hole holeToAdd = config.getHoles().get(i);
-            board.add(new Hole(holeToAdd.getKorgols()));
+            Hole hole = config.getHoles().get(i);
+            board.add(hole);
+            if(i >= 0 && i < 9){
+                hole.setSeat(Seat.WHITE);
+            } else {
+                hole.setSeat(Seat.BLACK);
+            }
         }
     }
 
@@ -51,8 +63,17 @@ public class Board {
     // a 'shadow' move method that alters a given board to give you a
     // predicted state after said move, does not alter Kazans
     public static ArrayList<Hole> move(int holeIndex, ArrayList<Hole> shadowBoard, boolean all) {
-        ArrayList<Hole> result = new ArrayList<Hole>(shadowBoard);
+
+        ArrayList<Hole> result = new ArrayList<Hole>();
+        for(Hole h : shadowBoard){
+            result.add(new Hole(h.getKorgols()).setSeat(h.getSeat()));
+        }
+
+
+
         Hole targetHole = result.get(holeIndex);
+
+        System.out.println(result == shadowBoard);
 
         int ballsToMove = targetHole.getKorgols();
         int targetHoleIndex = result.indexOf(targetHole);
@@ -61,12 +82,17 @@ public class Board {
         for (int i = targetHoleIndex; i < (targetHoleIndex + ballsToMove); i++) {
             result.get(i % 18).addKorgol();
         }
+
+        for(Hole h : result){
+            System.out.println(result.indexOf(h) + " : " + h.getKorgols());
+        }
+
         if(all){
         } else {
             result.clear();
             result.add(finalHole);
         }
-        return result;
+        return new ArrayList<Hole>(result);
     }
 
     public ArrayList<Hole> getHoles(){return board;}
@@ -79,6 +105,16 @@ public class Board {
             return Seat.WHITE;
         } else {
             return null;
+        }
+
+    }
+
+    public void print(){
+
+        for(Hole hole : board){
+
+            System.out.println(board.indexOf(hole) + " : " + hole.getKorgols());
+
         }
 
     }

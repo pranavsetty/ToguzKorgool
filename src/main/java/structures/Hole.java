@@ -26,6 +26,13 @@ public class Hole {
         else {return false;}
     }
 
+    public Hole setSeat(Seat seat){
+
+        this.seat = seat;
+        return this;
+
+    }
+
     public Seat getSeat(){ return seat; }
 
 }

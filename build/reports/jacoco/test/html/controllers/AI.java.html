@@ -6,14 +6,14 @@ import java.util.*;
 public class AI {
 
     // the weightings to decide how much weight a given factor has in the AI's choice of hole
-<span class="nc" id="L9">    public static double ODDWEIGHT = 1.0;</span>
-<span class="nc" id="L10">    public static double TUZWEIGHT = 3.0;</span>
-<span class="nc" id="L11">    public static double MOODCHANGEWEIGHT = 0.3;</span>
+<span class="fc" id="L9">    public static double ODDWEIGHT = 1.0;</span>
+<span class="fc" id="L10">    public static double TUZWEIGHT = 3.0;</span>
+<span class="fc" id="L11">    public static double MOODCHANGEWEIGHT = 0.3;</span>
 
     // the type of AI it is, defines its behaviour: aggressive, defensive or wild
     private  AIType type;
     // whether it is playing on white or black
-    private Seat seat;
+<span class="fc" id="L16">    private Seat seat = Seat.BLACK;</span>
     // whether they can change their playstyle mid game
     private boolean dynamic;
 
@@ -22,7 +22,7 @@ public class AI {
     // @return: an ideal Hole to move korgols from
     public Hole evaluate(ArrayList&lt;Hole&gt; board){
 
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(dynamic) {</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if(dynamic) {</span>
             // can randomly change the AI's mood if dyanmic
 <span class="nc" id="L27">            moodChange();</span>
         }
@@ -31,105 +31,119 @@ public class AI {
         // that can provide positive benefits to the player
         // first looking to elimate any nearTuz Holes and then any Holes with odd Korgols
 
-<span class="nc bnc" id="L34" title="All 4 branches missed.">        switch(type) {</span>
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">        switch(type) {</span>
             case DEF:
                 // find an ideal set of defensive choices using a hashmap that records the number of unideal
                 // results from using each hole, an undeal result here is defined as
                 // a result the opposing player can take advantage of
-<span class="nc" id="L39">                HashMap&lt;Hole, Integer&gt; def = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">                for (Hole hole : board) {</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">                    if (hole.getSeat() == seat) {</span>
-<span class="nc" id="L42">                        def.put(hole, threats(hole, board));</span>
+<span class="fc" id="L39">                ArrayList&lt;HoleWeight&gt; def = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L40">                System.out.println(board.size());</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">                for (Hole hole : board) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                    if (hole.getSeat() == seat) {</span>
+<span class="fc" id="L43">                        def.add(new HoleWeight(hole, threats(hole, new ArrayList&lt;&gt;(board))));</span>
                     }
-<span class="nc" id="L44">                }</span>
-<span class="nc" id="L45">                AbstractMap.SimpleEntry&lt;Hole, Integer&gt; idealDef = null;</span>
+<span class="fc" id="L45">                }</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">                for(HoleWeight we : def){</span>
+<span class="fc" id="L47">                    System.out.println(&quot;Hole:&quot; + board.indexOf(we.getHole()) + &quot; : &quot; + we.getWeight());</span>
+<span class="fc" id="L48">                }</span>
+<span class="fc" id="L49">                HoleWeight idealDef = null;</span>
                 // iterates assuming that moving a later Hole is always better than moving an earlier hole
-                // (greater chance by definition to get korgols, even while on the defensive)
-<span class="nc" id="L48">                Iterator itd = def.entrySet().iterator();</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">                while (itd.hasNext()) {</span>
-<span class="nc" id="L50">                    Map.Entry pair = (Map.Entry) itd.next();</span>
-<span class="nc bnc" id="L51" title="All 4 branches missed.">                    if (idealDef == null || (Integer) pair.getValue() &lt;= idealDef.getValue()) {</span>
-<span class="nc" id="L52">                        idealDef = (AbstractMap.SimpleEntry&lt;Hole, Integer&gt;) pair;</span>
+<span class="fc" id="L51">                Iterator itd = def.iterator();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                while (itd.hasNext()) {</span>
+<span class="fc" id="L53">                    HoleWeight hw = (HoleWeight)itd.next();</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">                    if (idealDef == null || hw.getWeight() &lt;= idealDef.getWeight()) {</span>
+<span class="fc" id="L55">                        idealDef = hw;</span>
                     }
-<span class="nc" id="L54">                }</span>
-<span class="nc" id="L55">                return idealDef.getKey();</span>
+<span class="fc" id="L57">                }</span>
+<span class="fc" id="L58">                return idealDef.getHole();</span>
             case WILD:
                 // completely random
-<span class="nc" id="L58">                Random r = new Random();</span>
-<span class="nc" id="L59">                return board.get(r.nextInt(board.size()));</span>
+<span class="fc" id="L61">                Random r = new Random();</span>
+<span class="fc" id="L62">                return board.get(r.nextInt(board.size()));</span>
             case AGG:
                 // find an ideal set of offensive choices using a hashmap that records the number of ideal
                 // results from using each hole, an ideal result here is defined as
                 // a result that yields the most possible korgols
-<span class="nc" id="L64">                HashMap&lt;Hole, Integer&gt; agg = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">                for (Hole hole : board) {</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">                    if (hole.getSeat() == seat) {</span>
-<span class="nc" id="L67">                        agg.put(hole, opportunities(hole, board));</span>
+<span class="fc" id="L67">                ArrayList&lt;HoleWeight&gt; agg = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L68">                System.out.println(board.size());</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">                for (Hole hole : board) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                    if (hole.getSeat() == seat) {</span>
+<span class="fc" id="L71">                        agg.add(new HoleWeight(hole, opportunities(hole, new ArrayList&lt;&gt;(board))));</span>
                     }
-<span class="nc" id="L69">                }</span>
-<span class="nc" id="L70">                AbstractMap.SimpleEntry&lt;Hole, Integer&gt; idealAgg = null;</span>
+<span class="fc" id="L73">                }</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">                for(HoleWeight we : agg){</span>
+<span class="fc" id="L75">                    System.out.println(&quot;Hole:&quot; + board.indexOf(we.getHole()) + &quot; : &quot; + we.getWeight());</span>
+<span class="fc" id="L76">                }</span>
+<span class="fc" id="L77">                HoleWeight idealAgg = null;</span>
                 // iterates assuming that moving an earlier Hole is always better than moving a later hole
-<span class="nc" id="L72">                Iterator ita = agg.entrySet().iterator();</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">                while (ita.hasNext()) {</span>
-<span class="nc" id="L74">                    Map.Entry pair = (Map.Entry) ita.next();</span>
-<span class="nc bnc" id="L75" title="All 4 branches missed.">                    if (idealAgg == null || (Integer) pair.getValue() &gt; idealAgg.getValue()) {</span>
-<span class="nc" id="L76">                        idealAgg = (AbstractMap.SimpleEntry&lt;Hole, Integer&gt;) pair;</span>
+<span class="fc" id="L79">                Iterator ita = agg.iterator();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                while (ita.hasNext()) {</span>
+<span class="fc" id="L81">                    HoleWeight hw = (HoleWeight)ita.next();</span>
+<span class="fc bfc" id="L82" title="All 4 branches covered.">                    if (idealAgg == null || hw.getWeight() &gt; idealAgg.getWeight()) {</span>
+<span class="fc" id="L83">                        idealAgg = hw;</span>
                     }
-<span class="nc" id="L78">                }</span>
-<span class="nc" id="L79">                return idealAgg.getKey();</span>
+<span class="fc" id="L85">                }</span>
+<span class="fc" id="L86">                System.out.println(idealAgg.getHole().getKorgols());</span>
+<span class="fc" id="L87">                System.out.println(board.indexOf(idealAgg.getHole()));</span>
+<span class="fc" id="L88">                return idealAgg.getHole();</span>
         }
 
         // AI not setup correctly
-<span class="nc" id="L83">        return null;</span>
+<span class="nc" id="L92">        return null;</span>
 
     }
 
-<span class="nc" id="L87">    public AI(AIType type, Seat seat, boolean dynamic){</span>
+<span class="fc" id="L96">    public AI(AIType type, boolean dynamic){</span>
 
-<span class="nc" id="L89">        this.type = type;</span>
-<span class="nc" id="L90">        this.seat = seat;</span>
-<span class="nc" id="L91">        this.dynamic = dynamic;</span>
+<span class="fc" id="L98">        this.type = type;</span>
+<span class="fc" id="L99">        this.seat = seat;</span>
+<span class="fc" id="L100">        this.dynamic = dynamic;</span>
 
-<span class="nc" id="L93">    }</span>
+<span class="fc" id="L102">    }</span>
 
     private void moodChange(){
 
-<span class="nc" id="L97">        Random r = new Random();</span>
-<span class="nc" id="L98">        double choice = r.nextDouble();</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">        if(choice &lt;= MOODCHANGEWEIGHT){</span>
-<span class="nc" id="L100">            type = AIType.getRandom();</span>
+<span class="nc" id="L106">        Random r = new Random();</span>
+<span class="nc" id="L107">        double choice = r.nextDouble();</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if(choice &lt;= MOODCHANGEWEIGHT){</span>
+<span class="nc" id="L109">            type = AIType.getRandom();</span>
         }
 
-<span class="nc" id="L103">    }</span>
+<span class="nc" id="L112">    }</span>
 
 
     private int threats(Hole target, ArrayList&lt;Hole&gt; board){
 
-<span class="nc" id="L108">        ArrayList&lt;Hole&gt; futureBoard = Board.move(board.indexOf(target), board, true);</span>
-<span class="nc" id="L109">        int threatCount = 0;</span>
-<span class="nc bnc" id="L110" title="All 2 branches missed.">        for(Hole hole : futureBoard){</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">            if(hole.getSeat() == seat){</span>
-<span class="nc bnc" id="L112" title="All 2 branches missed.">                if(!hole.isEven()){</span>
-<span class="nc" id="L113">                    threatCount += 1 * ODDWEIGHT;</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">                } else if(hole.getKorgols() == 2){</span>
-<span class="nc" id="L115">                    threatCount += 1 * TUZWEIGHT;</span>
+<span class="fc" id="L117">        ArrayList&lt;Hole&gt; futureBoard = Board.move(board.indexOf(target), board, true);</span>
+<span class="fc" id="L118">        int threatCount = 0;</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        for(Hole hole : futureBoard){</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">            if(hole.getSeat() == seat){</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">                if(!hole.isEven()){</span>
+<span class="fc" id="L122">                    threatCount += 1 * ODDWEIGHT;</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">                } else if(hole.getKorgols() == 2){</span>
+<span class="nc" id="L124">                    threatCount += 1 * TUZWEIGHT;</span>
                 }
             }
-<span class="nc" id="L118">        }</span>
-<span class="nc" id="L119">        return threatCount;</span>
+<span class="fc" id="L127">        }</span>
+<span class="fc" id="L128">        return threatCount;</span>
 
     }
 
     private int opportunities(Hole target, ArrayList&lt;Hole&gt; board){
 
-<span class="nc" id="L125">        ArrayList&lt;Hole&gt; futureLastHole = Board.move(board.indexOf(target), board, false);</span>
-<span class="nc" id="L126">        int opp = 0;</span>
-<span class="nc bnc" id="L127" title="All 4 branches missed.">        if(futureLastHole.get(0).isEven() &amp;&amp; futureLastHole.get(0).getSeat() != seat){</span>
-<span class="nc" id="L128">            opp = futureLastHole.get(0).getKorgols();</span>
+<span class="fc" id="L134">        ArrayList&lt;Hole&gt; futureLastHole = Board.move(board.indexOf(target), new ArrayList&lt;&gt;(board), false);</span>
+<span class="fc" id="L135">        int opp = 0;</span>
+<span class="pc bpc" id="L136" title="1 of 4 branches missed.">        if(futureLastHole.get(0).isEven() &amp;&amp; futureLastHole.get(0).getSeat() != seat){</span>
+<span class="fc" id="L137">            opp = futureLastHole.get(0).getKorgols();</span>
         }
-<span class="nc" id="L130">        return opp;</span>
+        //System.out.println(opp);
+<span class="fc" id="L140">        return opp;</span>
 
     }
+
+    // getters
+<span class="fc" id="L145">    public AIType getType(){return type;}</span>
+<span class="fc" id="L146">    public boolean getDynamic(){return dynamic;}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
