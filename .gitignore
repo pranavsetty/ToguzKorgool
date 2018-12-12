@@ -2,3 +2,6 @@
 .idea
 build
 gradle
+out
+libs
+!gradle-wrapper.jar
