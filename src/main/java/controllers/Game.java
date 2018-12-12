@@ -12,9 +12,9 @@ import structures.*;
 public class Game extends Application {
 
     // game board, AI and play status
-    Board board = null;
-    AI ai = null;
-    boolean inGame = false;
+    private Board board = null;
+    private AI ai = null;
+    private boolean inGame = false;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,7 +25,7 @@ public class Game extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-        if(Configuration.setup()){
+        if (Configuration.setup()) {
         } else {
             // error message and quit
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -37,7 +37,7 @@ public class Game extends Application {
         }
     }
 
-    public void play(Configuration config){
+    public void play(Configuration config) {
 
         inGame = true;
         board = new Board(config);
@@ -45,31 +45,31 @@ public class Game extends Application {
 
     }
 
-    public void play(){
+    public void play() {
 
         board = new Board();
         ai = new AI(AIType.DEF, true);
 
     }
 
-    public void playerMove(Hole hole){
+    public void playerMove(Hole hole) {
 
-        if(inGame){
+        if (inGame) {
             board.move(hole, Seat.WHITE);
         }
 
     }
 
-    public void AIMove(){
+    public void AIMove() {
 
         board.move(ai.evaluate(board.getHoles()), Seat.BLACK);
 
     }
 
-    public String add(String sav){
+    public String add(String sav) {
 
         Configuration config = new Configuration(sav);
-        if(config.isValid()){
+        if (config.isValid()) {
             return Configuration.saveConfigs();
         } else {
             return "Invalid configuration. Note that all Korgols on the board must add up to: " + Configuration.TOTALKORGOLS;
@@ -77,16 +77,18 @@ public class Game extends Application {
 
     }
 
-    public String load(){
+    public String load() {
         return Configuration.loadConfigs();
     }
 
-    public Seat winner(){
+    public Seat winner() {
 
         return board.hasWon();
 
     }
 
-    public Board getBoard(){return board;}
+    public Board getBoard() {
+        return board;
+    }
 
 }

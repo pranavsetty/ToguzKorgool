@@ -1,19 +1,42 @@
+.counter {
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+
+.score {
+    -fx-font-size: 80;
+    -fx-font-weight: bold;
+}
+
 .dark {
-	-fx-background-color: #464647;
+    -fx-background-color: #464647;
 }
 
-.light {
-	-fx-background-color: #F2F1F0;
-}
-
-.light > .box {
-	-fx-background-color: #464647;
+.dark > .score {
+    -fx-fill: #c3cff2;
 }
 
 .dark > .box {
-	-fx-background-color: #F2F1F0;
+    -fx-background-color: #c3cff2;
 }
 
-.hole {
-
+.dark > .box > .counter {
+    -fx-fill: #464647;
 }
+
+.light {
+    -fx-background-color: #c3cff2;
+}
+
+.light > .score {
+    -fx-fill: #2a2d47;
+}
+
+.light > .box {
+    -fx-background-color: #2a2d47;
+}
+
+.light > .box > .counter {
+    -fx-fill: #c3cff2;
+}
+
