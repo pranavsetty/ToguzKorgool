@@ -10,7 +10,7 @@ public class Kazan {
     }
 
     //Accessor method for number of korgols in Kazan
-    public int GetKorgols(){return korgols;}
+    public int getKorgols(){return korgols;}
 
     //Mutator method which adds one korgol to the Kazan
     public void addKorgol(){korgols++;}

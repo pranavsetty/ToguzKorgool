@@ -65,7 +65,7 @@ public class Configuration {
         for(Hole h : holes){
             sum += h.getKorgols();
         }
-        sum += (getBlackKazan().GetKorgols() + getWhiteKazan().GetKorgols());
+        sum += (getBlackKazan().getKorgols() + getWhiteKazan().getKorgols());
 
         if(sum != TOTALKORGOLS){
             return false;
@@ -89,7 +89,7 @@ public class Configuration {
             line += (hole.getKorgols() + ",");
         }
 
-        return line.substring(0, line.length() - 1) + "//" + white.GetKorgols() + "," + black.GetKorgols();
+        return line.substring(0, line.length() - 1) + "//" + white.getKorgols() + "," + black.getKorgols();
 
     }
 
@@ -111,11 +111,11 @@ public class Configuration {
     // two configurations are equal if their setups are the same
     public boolean equals(Configuration other) {
 
-        if(!(white.GetKorgols() == other.getWhiteKazan().GetKorgols())){
+        if(!(white.getKorgols() == other.getWhiteKazan().getKorgols())){
             return false;
         }
 
-        if(!(black.GetKorgols() == other.getBlackKazan().GetKorgols())){
+        if(!(black.getKorgols() == other.getBlackKazan().getKorgols())){
             return false;
         }
 

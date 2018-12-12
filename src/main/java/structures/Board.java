@@ -10,6 +10,8 @@ public class Board {
     public static final int WINAMOUNT = 82;
 
     public Board() {
+        playerOneKazan = new Kazan(0);
+        playerTwoKazan = new Kazan(0);
         for (int i = 0; i < 18; i++) {
             Hole hole = new Hole(9);
             board.add(hole);
@@ -18,7 +20,6 @@ public class Board {
             } else {
                 hole.setSeat(Seat.BLACK);
             }
-
         }
     }
 
@@ -84,9 +85,9 @@ public class Board {
 
     public Seat hasWon(){
 
-        if(playerOneKazan.GetKorgols() == WINAMOUNT){
+        if(playerOneKazan.getKorgols() == WINAMOUNT){
             return Seat.BLACK;
-        } else if(playerTwoKazan.GetKorgols() == WINAMOUNT){
+        } else if(playerTwoKazan.getKorgols() == WINAMOUNT){
             return Seat.WHITE;
         } else {
             return null;
@@ -94,4 +95,11 @@ public class Board {
 
     }
 
+    public Kazan getPlayerOneKazan() {
+        return playerOneKazan;
+    }
+
+    public Kazan getPlayerTwoKazan() {
+        return playerTwoKazan;
+    }
 }
