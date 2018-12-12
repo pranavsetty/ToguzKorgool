@@ -6,6 +6,8 @@ public class Board {
     private ArrayList<Hole> board = new ArrayList<Hole>(18);
     private Kazan playerOneKazan;
     private Kazan playerTwoKazan;
+    private Integer blackTuz = null;
+    private Integer whiteTuz = null;
 
     public static final int WINAMOUNT = 82;
 
@@ -48,6 +50,10 @@ public class Board {
             if (finalHole.getSeat() == Seat.BLACK && finalHole.isEven()) {
                 playerOneKazan.addKorgols(finalHole.getKorgols());
                 finalHole.clear();
+            }
+            if (whiteTuz == null && finalHole.getSeat() == Seat.BLACK && finalHole.getKorgols() == 3) {
+                whiteTuz = board.indexOf(finalHole);
+                finalHole.setSeat(Seat.WHITE);
             }
         }
     }
