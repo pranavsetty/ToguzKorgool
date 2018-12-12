@@ -40,18 +40,18 @@ public class Controller {
             Text korgolTextValue = new Text();
             korgolTextValue.setText(String.valueOf(korgolValue));
             korgolTextValue.getStyleClass().add("counter");
-            StackPane score = new StackPane(korgolTextValue);
-            score.getStyleClass().add(korgolSeat.toString().toLowerCase());
+            StackPane korgolBox = new StackPane(korgolTextValue);
+            korgolBox.getStyleClass().add(korgolSeat.toString().toLowerCase());
 
             if (korgolSeat == Seat.WHITE) {
                 final int ii = i;
-                score.setOnMousePressed(event -> nextMove(holesList.get(ii)));
+                korgolBox.setOnMousePressed(event -> nextMove(holesList.get(ii)));
             }
 
             if (i < 9) {
-                white.add(score, (i * 2) + 1, 1);
+                white.add(korgolBox, (i * 2) + 1, 1);
             } else {
-                black.add(score, ((i % 9 * 2) + 1), 1);
+                black.add(korgolBox, ((i % 9 * 2) + 1), 1);
             }
         }
     }
