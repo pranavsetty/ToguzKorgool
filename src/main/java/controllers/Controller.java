@@ -14,6 +14,7 @@ public class Controller {
     private AI ai;
     private boolean inGame = false;
     private Configuration config;
+    private int turn;
 
     @FXML
     private GridPane black, white;
@@ -23,7 +24,8 @@ public class Controller {
     public void initialize() {
         inGame = true;
         board = new Board();
-        ai = new AI(AIType.DEF, true);
+        ai = new AI(AIType.AGG, false);
+        turn = 0;
         updateBoard();
     }
 
@@ -62,25 +64,34 @@ public class Controller {
     }
 
     private void updateKazans() {
-        whiteKazan.setText(String.valueOf(board.getPlayerOneKazan().getKorgols()));
-        blackKazan.setText(String.valueOf(board.getPlayerTwoKazan().getKorgols()));
+        whiteKazan.setText(String.valueOf(board.seatToKazan(Seat.WHITE).getKorgols()));
+        blackKazan.setText(String.valueOf(board.seatToKazan(Seat.BLACK).getKorgols()));
     }
 
     private void nextMove(Hole hole) {
-        playerMove(hole);
-        AIMove();
-        updateBoard();
+        if(turn % 2 == 0){
+            turn++;
+            playerMove(hole);
+            updateBoard();
+            AIMove();
+            updateBoard();
+            turn++;
+        }
     }
 
     private void playerMove(Hole hole) {
-        System.out.println(hole);
+        System.out.println(board.getHoles().indexOf(hole));
         if (inGame) {
             board.move(hole, Seat.WHITE);
         }
     }
 
     private void AIMove() {
-        board.move(ai.evaluate(board.getHoles()), Seat.BLACK);
+
+        Hole hole = ai.evaluate(board.getHoles());
+        System.out.println("AI+ " + board.getHoles().indexOf(hole));
+        board.move(hole, Seat.BLACK);
+
     }
 
     public String add(String sav) {

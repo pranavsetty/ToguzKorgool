@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ec34ae6f-4ce4-4a98-9b36-41d4e290e356" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/AI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/AI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/controllers/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/structures/Hole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/structures/Hole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/AITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/AITest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/structures/Hole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/Hole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/structures/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/structures/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ConfigurationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ConfigurationTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -72,33 +66,34 @@
     <session id="-715230810">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="1" />
-          <entry key="gradle" value="1" />
+          <entry key="gradle" value="2" />
           <entry key="html" value="2" />
-          <entry key="java" value="19" />
+          <entry key="java" value="31" />
           <entry key="sav" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Groovy" value="1" />
+          <entry key="Groovy" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JAVA" value="19" />
+          <entry key="JAVA" value="31" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="XML" value="1" />
         </counts>
@@ -107,27 +102,42 @@
         <counts>
           <entry key="fxml" value="35" />
           <entry key="gradle" value="208" />
-          <entry key="java" value="25921" />
+          <entry key="java" value="29063" />
           <entry key="txt" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="208" />
-          <entry key="JAVA" value="25921" />
+          <entry key="JAVA" value="29063" />
           <entry key="PLAIN_TEXT" value="37" />
           <entry key="XML" value="35" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.checkout.remote" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="method#Board#0;class#Board#0" />
+                <element signature="method#Board#1;class#Board#0" />
+                <element signature="method#makeTuz#0;class#Board#0" />
+                <element signature="method#move#0;class#Board#0" />
+                <element signature="method#seatToKazan#0;class#Board#0" />
+                <element signature="method#hasWon#0;class#Board#0" />
+                <element signature="method#move#1;class#Board#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ConfigurationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-833">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="161">
+              <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/AITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
+            <state relative-caret-position="671">
               <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -159,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1751">
-              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="102">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,14 +179,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="65" column="33" lean-forward="true" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
-                <element signature="e#1534#1535#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,8 +202,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+            <state relative-caret-position="2278">
+              <caret line="134" column="13" lean-forward="true" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,7 +215,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/HoleWeight.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -206,8 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/structures/Hole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            <state relative-caret-position="289">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -237,11 +254,17 @@
       <find>equals</find>
       <find>board</find>
       <find>shadowBoard</find>
+      <find>nextMove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/ui" />
+      </map>
+    </option>
   </component>
   <component name="GithubProjectSettings">
     <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
@@ -251,7 +274,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\user\.gradle\wrapper\dists\gradle-4.8-bin\divx0s2uj4thofgytb7gf9fsi\gradle-4.8" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Josh\.gradle\wrapper\dists\gradle-4.8-bin\divx0s2uj4thofgytb7gf9fsi\gradle-4.8" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -491,7 +514,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6171451635583" />
+        <entry key="$PROJECT_DIR$" value="6172951644828" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="1367992371" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2007532874" />
@@ -510,6 +533,8 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.dynamicfiles.projects.gradle.plugins/javafx-gradle-plugin/8.8.2/ac759b9d4d657680af6b40aa44a62504c3f37a8/javafx-gradle-plugin-8.8.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-all/5.1/81e81bd6c20b965f88d0462e2559f8759fc6c26d/asm-all-5.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.dynamicfiles.projects.gradle.plugins/javafx-gradle-plugin/8.8.2/71fcf736e69f5a68db4febfe3784b151a3264484/javafx-gradle-plugin-8.8.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-all/5.1/ae8be205e00013dce1e31420aee506a0333d21ad/asm-all-5.1.jar" />
                           </list>
@@ -600,8 +625,6 @@
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.8-bin/divx0s2uj4thofgytb7gf9fsi/gradle-4.8/lib/plugins/gradle-version-control-4.8.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.8-bin/divx0s2uj4thofgytb7gf9fsi/gradle-4.8/lib/plugins/gradle-workers-4.8.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.8-bin/divx0s2uj4thofgytb7gf9fsi/gradle-4.8/lib/plugins/ivy-2.2.0.jar" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
               </option>
             </ExternalProjectBuildClasspathPojo>
@@ -627,17 +650,18 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Kazan.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/AIType.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ConfigurationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/HoleWeight.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/AI.java" />
         <option value="$PROJECT_DIR$/src/test/java/AITest.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Hole.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ConfigurationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/AI.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/Controller.java" />
       </list>
     </option>
   </component>
@@ -653,34 +677,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -688,22 +713,34 @@
             </path>
             <path>
               <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toguz_korgool" type="462c0819:PsiDirectoryNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="structures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="toguz_korgool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toguz_korgool" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544563195275" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544647476245" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/commons-io-2.6.jar!/" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -838,10 +875,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AITest" />
-        <item itemvalue="Gradle.toguz_korgool [jfxRun]" />
         <item itemvalue="Gradle.toguz_korgool [jfxNative]" />
         <item itemvalue="Gradle.toguz_korgool [buildDependents]" />
         <item itemvalue="Gradle.toguz_korgool [clean]" />
+        <item itemvalue="Gradle.toguz_korgool [jfxRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -874,9 +911,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AITest - 2018.12.11 at 20h 38m 07s.xml">
-      <configuration name="AITest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AITest - 2018.12.11 at 20h 38m 28s.xml">
       <configuration name="AITest" configurationId="JUnit" />
     </history-entry>
@@ -904,6 +938,9 @@
     <history-entry file="AITest - 2018.12.11 at 21h 19m 30s.xml">
       <configuration name="AITest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AITest - 2018.12.11 at 21h 20m 00s.xml">
+      <configuration name="AITest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -918,7 +955,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21641791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -927,13 +964,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49781182" weight="0.32914045" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.80744684" visible="true" weight="0.32606438" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.80744684" weight="0.32606438" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4991511" weight="0.3956386" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.3281412" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4989059" weight="0.3281412" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49521276" weight="0.32087228" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49521276" visible="true" weight="0.32087228" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.19255319" side_tool="true" weight="0.32678387" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3281412" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4989059" weight="0.3281412" />
@@ -989,13 +1026,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java" />
     <entry file="file://$PROJECT_DIR$/build/jfx/app/tgkg.sav" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/structures/Seat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1010,27 +1040,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Kazan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/reports/jacoco/test/html/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Hole.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        <state relative-caret-position="287">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/AI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1040,36 +1063,45 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/structures/HoleWeight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Hole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Kazan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/AITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
+        <state relative-caret-position="671">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="134" column="13" lean-forward="true" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1078,8 +1110,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ConfigurationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-833">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="161">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1088,8 +1120,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/structures/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" />
+            <element signature="method#Board#1;class#Board#0" />
+            <element signature="method#makeTuz#0;class#Board#0" />
+            <element signature="method#move#0;class#Board#0" />
+            <element signature="method#seatToKazan#0;class#Board#0" />
+            <element signature="method#hasWon#0;class#Board#0" />
+            <element signature="method#move#1;class#Board#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="65" column="33" lean-forward="true" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
