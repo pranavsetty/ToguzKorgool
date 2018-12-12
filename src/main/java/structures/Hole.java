@@ -26,6 +26,18 @@ public class Hole {
         else {return false;}
     }
 
+    public boolean isEmpty(){
+        if(korgols == 0){return true;}
+        return false;
+    }
+
+    public Hole setSeat(Seat seat){
+
+        this.seat = seat;
+        return this;
+
+    }
+
     public Seat getSeat(){ return seat; }
 
 }
