@@ -66,7 +66,7 @@ public class Board {
 
         switch(forthis){
             case BLACK:
-                if(blackTuz == null){
+                if(blackTuz == null && board.indexOf(hole) != whiteTuz){
                     blackTuz = board.indexOf(hole);
                     hole.setSeat(Seat.BLACK);
                     return true;
@@ -74,7 +74,7 @@ public class Board {
                     return false;
                 }
             case WHITE:
-                if(whiteTuz == null){
+                if(whiteTuz == null && board.indexOf(hole) != blackTuz){
                     whiteTuz = board.indexOf(hole);
                     hole.setSeat(Seat.WHITE);
                     return true;
@@ -110,7 +110,7 @@ public class Board {
                 break;
             default:
                 finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);
-                for (int i = targetHoleIndex + 1; i <= (targetHoleIndex + ballsToMove); i++) {
+                for (int i = targetHoleIndex; i <= (targetHoleIndex + ballsToMove); i++) {
                     board.get(i % 18).addKorgol();
                 }
                 break;
@@ -121,10 +121,12 @@ public class Board {
         // if the final hole has 3 and is not owned by you
         if(finalHole.getSeat() != mover && finalHole.isEven()){
             seatToKazan(mover).addKorgols(finalHole.getKorgols());
+            System.out.println(finalHole.getKorgols() + " added;");
             finalHole.clear();
         } else if(finalHole.getSeat() != mover && finalHole.getKorgols() == 3){
             if(makeTuz(finalHole, mover)){
                 seatToKazan(mover).addKorgols(finalHole.getKorgols());
+                System.out.println("Tuz");
                 finalHole.clear();
             }
         }
