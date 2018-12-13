@@ -40,7 +40,7 @@ public class ConfigurationTest {
         }
 
         // kazan testing
-        assertEquals(one.getWhiteKazan().GetKorgols() + one.getBlackKazan().GetKorgols(), 51);
+        assertEquals(one.getWhiteKazan().getKorgols() + one.getBlackKazan().getKorgols(), 51);
 
     }
 

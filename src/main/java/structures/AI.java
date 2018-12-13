@@ -128,9 +128,9 @@ public class AI {
         for(Hole hole : futureBoard){
             if(hole.getSeat() == seat){
                 if(!hole.isEven()){
-                    threatCount += 1 * ODDWEIGHT;
+                    threatCount += 1 + (hole.getKorgols() * ODDWEIGHT);
                 } else if(hole.getKorgols() == 2){
-                    threatCount += 1 * TUZWEIGHT;
+                    threatCount += 3 * TUZWEIGHT;
                 }
             }
         }
