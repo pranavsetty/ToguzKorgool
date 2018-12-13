@@ -176,7 +176,7 @@ public class Configuration {
             return "No save file was found, please either reinstall the program or restart.";
         }
 
-        // create reder to read lines of file
+        // create reader to read lines of file
         BufferedReader reader = new BufferedReader(new InputStreamReader(fstream));
         try {
             while (reader.ready()) {

@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 public class Controller {
 
+    // TODO: Link configurations to game
+    // TODO: Reset method
+    // TODO: Winner method
+
+    // member variables
     private Board board;
     private AI ai;
     private boolean inGame = false;
@@ -21,19 +26,34 @@ public class Controller {
     @FXML
     private Text whiteKazan, blackKazan;
 
+    // setup the game with a certain configuration
+    // TODO: Link parameters to UI
+    // public void initialize(Configuration selectedConfig, AIType aitype, boolean dynamic)
+    // @param: a configuration (can be null), an ai type and whether the ai changes behaviour mid game
+    // @return: void
     public void initialize() {
-        inGame = true;
+
+        // setup member variables
         board = new Board();
-        ai = new AI(AIType.DEF, false);
+        ai = new AI(AIType.WILD, true);
+
+        // start game
+        inGame = true;
         turn = 0;
         updateBoard();
     }
 
+    // update game board and allow for play
+    // @param: void
+    // @return: void
     private void updateBoard() {
+
+        // update ui
         ArrayList<Hole> holesList = board.getHoles();
         clearBoard();
         updateKazans();
 
+        // setup holes
         for (int i = 0; i < holesList.size(); i++) {
             Hole currentKorgol = holesList.get(i);
             int korgolValue = currentKorgol.getKorgols();
@@ -56,44 +76,69 @@ public class Controller {
                 black.add(korgolBox, ((i % 9 * 2) + 1), 1);
             }
         }
+
     }
 
+    // reset board state (ui)
+    // @param: void
+    // @return: void
     private void clearBoard() {
         black.getChildren().clear();
         white.getChildren().clear();
     }
 
+    // updates display values for kazans in game
+    // @param: void
+    // @return: void
     private void updateKazans() {
         whiteKazan.setText(String.valueOf(board.seatToKazan(Seat.WHITE).getKorgols()));
         blackKazan.setText(String.valueOf(board.seatToKazan(Seat.BLACK).getKorgols()));
     }
 
+    // method that begins move sequence, evaluates the players move
+    // then makes the ai move and evaluates that
+    // @param: Hole to move from for player
+    // @return: void
     private void nextMove(Hole hole) {
+
+        // prevent spamming
         if(turn % 2 == 0){
             turn++;
+
             playerMove(hole);
             updateBoard();
             AIMove();
             updateBoard();
+
             turn++;
         }
+
     }
 
+    // moves korgols from a given valid hole from the players
+    // perspective
+    // @param: hole to move the korgols from on the board
+    // @return: void
     private void playerMove(Hole hole) {
-        System.out.println(board.getHoles().indexOf(hole));
         if (inGame) {
             board.move(hole, Seat.WHITE);
         }
     }
 
+    // moves korgols from a hole that the AI determines via its algorithm
+    // @param: void
+    // @return: void
     private void AIMove() {
-
         Hole hole = ai.evaluate(board.getHoles());
-        System.out.println("AI+ " + board.getHoles().indexOf(hole));
-        board.move(hole, Seat.BLACK);
-
+        if(inGame){
+            board.move(hole, Seat.BLACK);
+        }
     }
 
+    // checks if a given string can be added as a configuration, if so it adds it and returns a
+    // success message, else returns a failure message, for main menu
+    // @param: a string to convert to a configuration
+    // @return: a status message
     public String add(String sav) {
         Configuration config = new Configuration(sav);
         if (config.isValid()) {
@@ -103,6 +148,9 @@ public class Controller {
         }
     }
 
+    // loads a given set of saved configurations into memory
+    // @param: void
+    // @return: a status message
     public String load() {
         return Configuration.loadConfigs();
     }

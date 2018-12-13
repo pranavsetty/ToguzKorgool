@@ -9,7 +9,7 @@ public class Game extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/game.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Toguz Korgool");
         Scene scene = new Scene(root, 1200, 600);
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -66,7 +66,7 @@ public class Board {
 
         switch(forthis){
             case BLACK:
-                if(blackTuz == null && board.indexOf(hole) != whiteTuz){
+                if(blackTuz == null && (whiteTuz == null || board.indexOf(hole) != whiteTuz)){
                     blackTuz = board.indexOf(hole);
                     hole.setSeat(Seat.BLACK);
                     return true;
@@ -74,7 +74,7 @@ public class Board {
                     return false;
                 }
             case WHITE:
-                if(whiteTuz == null && board.indexOf(hole) != blackTuz){
+                if(whiteTuz == null && (blackTuz == null || board.indexOf(hole) != blackTuz)){
                     whiteTuz = board.indexOf(hole);
                     hole.setSeat(Seat.WHITE);
                     return true;
@@ -109,8 +109,9 @@ public class Board {
                 finalHole.addKorgol();
                 break;
             default:
+                System.out.println(targetHoleIndex + " -> " + (targetHoleIndex + ballsToMove - 1) % 18);
                 finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);
-                for (int i = targetHoleIndex; i <= (targetHoleIndex + ballsToMove); i++) {
+                for (int i = targetHoleIndex; i <= (targetHoleIndex + ballsToMove - 1); i++) {
                     board.get(i % 18).addKorgol();
                 }
                 break;
@@ -121,12 +122,10 @@ public class Board {
         // if the final hole has 3 and is not owned by you
         if(finalHole.getSeat() != mover && finalHole.isEven()){
             seatToKazan(mover).addKorgols(finalHole.getKorgols());
-            System.out.println(finalHole.getKorgols() + " added;");
             finalHole.clear();
         } else if(finalHole.getSeat() != mover && finalHole.getKorgols() == 3){
             if(makeTuz(finalHole, mover)){
                 seatToKazan(mover).addKorgols(finalHole.getKorgols());
-                System.out.println("Tuz");
                 finalHole.clear();
             }
         }

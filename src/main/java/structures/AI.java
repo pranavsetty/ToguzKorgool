@@ -72,7 +72,13 @@ public class AI {
             case WILD:
 
                 // completely random
-                return board.get(r.nextInt(board.size()));
+                ArrayList<Hole> randomSelection = new ArrayList<Hole>();
+                for (Hole hole : board) {
+                    if (hole.getSeat() == seat && !hole.isEmpty()) {
+                        randomSelection.add(hole);
+                    }
+                }
+                return randomSelection.get(r.nextInt(randomSelection.size()));
 
             case AGG:
 
