@@ -24,12 +24,12 @@ public class Controller {
     public void initialize() {
         inGame = true;
         board = new Board();
-        ai = new AI(AIType.AGG, false);
+        ai = new AI(AIType.DEF, false);
         turn = 0;
         updateBoard();
     }
 
-    void updateBoard() {
+    private void updateBoard() {
         ArrayList<Hole> holesList = board.getHoles();
         clearBoard();
         updateKazans();
@@ -45,13 +45,13 @@ public class Controller {
             StackPane korgolBox = new StackPane(korgolTextValue);
             korgolBox.getStyleClass().add(korgolSeat.toString().toLowerCase());
 
-            if (korgolSeat == Seat.WHITE) {
+            if (korgolSeat == Seat.WHITE && korgolValue != 0) {
                 final int ii = i;
                 korgolBox.setOnMousePressed(event -> nextMove(holesList.get(ii)));
             }
 
             if (i < 9) {
-                white.add(korgolBox, (i * 2) + 1, 1);
+                white.add(korgolBox, ((8-i) * 2) + 1, 1);
             } else {
                 black.add(korgolBox, ((i % 9 * 2) + 1), 1);
             }
