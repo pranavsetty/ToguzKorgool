@@ -19,10 +19,10 @@ public class Hole {
 
     public boolean isTuz(){return tuz;}
 
-    //Korgol setter with no parameters
+    //Mutator method that adds one korgol in a hole
     public void addKorgol() {korgols++;}
 
-    //Korgol setter with variable number of korgols
+    //Mutator method that adds a variable number of korgols to a hole
     public void addKorgols(int number) {korgols+=number;}
 
     public void clear() {korgols=0;}
