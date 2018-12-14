@@ -15,8 +15,6 @@ import java.util.Optional;
 public class Controller {
 
     // TODO: Link configurations to game
-    // TODO: Reset method
-    // TODO: Winner method
 
     // member variables
     private Board board;
