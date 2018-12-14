@@ -1,12 +1,16 @@
 package controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import structures.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Controller {
 
@@ -20,6 +24,8 @@ public class Controller {
     private boolean inGame = false;
     private Configuration config;
     private int turn;
+
+    private boolean hasWon = false;
 
     @FXML
     private GridPane black, white;
@@ -47,7 +53,6 @@ public class Controller {
     // @param: void
     // @return: void
     private void updateBoard() {
-
         // update ui
         ArrayList<Hole> holesList = board.getHoles();
         clearBoard();
@@ -71,7 +76,7 @@ public class Controller {
             }
 
             if (i < 9) {
-                white.add(korgolBox, ((8-i) * 2) + 1, 1);
+                white.add(korgolBox, ((8 - i) * 2) + 1, 1);
             } else {
                 black.add(korgolBox, ((i % 9 * 2) + 1), 1);
             }
@@ -100,19 +105,12 @@ public class Controller {
     // @param: Hole to move from for player
     // @return: void
     private void nextMove(Hole hole) {
-
-        // prevent spamming
-        if(turn % 2 == 0){
-            turn++;
-
-            playerMove(hole);
-            updateBoard();
-            AIMove();
-            updateBoard();
-
-            turn++;
-        }
-
+        playerMove(hole);
+        updateBoard();
+        checkWin();
+        AIMove();
+        updateBoard();
+        checkWin();
     }
 
     // moves korgols from a given valid hole from the players
@@ -130,7 +128,7 @@ public class Controller {
     // @return: void
     private void AIMove() {
         Hole hole = ai.evaluate(board.getHoles());
-        if(inGame){
+        if (inGame) {
             board.move(hole, Seat.BLACK);
         }
     }
@@ -147,6 +145,33 @@ public class Controller {
             return "Invalid configuration. Note that all Korgols on the board must add up to: " + Configuration.TOTALKORGOLS;
         }
     }
+
+    private void checkWin() {
+        if(board.hasWon() != null && !hasWon){
+            Seat winner = board.hasWon();
+            hasWon = true;
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Game Over!");
+            alert.setHeaderText(winner.toString() + " HAS WON");
+            alert.setContentText("Would you like to continue?");
+
+            ButtonType buttonTypeOne = new ButtonType("Star again");
+            ButtonType buttonTypeTwo = new ButtonType("Quit");
+
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeOne){
+                hasWon = false;
+                initialize();
+            }
+            else {
+                Platform.exit();
+                System.exit(0);
+            }
+        }
+    }
+
 
     // loads a given set of saved configurations into memory
     // @param: void
