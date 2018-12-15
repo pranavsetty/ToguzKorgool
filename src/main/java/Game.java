@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/init.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Toguz Korgool");
-        Scene scene = new Scene(root, 1200, 600);
+        Scene scene = new Scene(root, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

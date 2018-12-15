@@ -153,7 +153,7 @@ public class Controller {
             alert.setHeaderText(winner.toString() + " HAS WON");
             alert.setContentText("Would you like to continue?");
 
-            ButtonType buttonTypeOne = new ButtonType("Star again");
+            ButtonType buttonTypeOne = new ButtonType("Start again");
             ButtonType buttonTypeTwo = new ButtonType("Quit");
 
             alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
