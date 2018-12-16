@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    // all hols on the board
+    // all holes on the board
     private ArrayList<Hole> board = new ArrayList<Hole>(18);
 
     // each players kazan
@@ -186,5 +186,7 @@ public class Board {
 
     // getters
     public ArrayList<Hole> getHoles(){return board;}
+    public int getPlayerOneKazan() {return playerOneKazan;}
+    public int getPlayerTwoKazan() {return playerTwoKazan;}
 
 }
