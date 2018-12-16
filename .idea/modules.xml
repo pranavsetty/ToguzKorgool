@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Team-Meerkat.iml" filepath="$PROJECT_DIR$/.idea/Team-Meerkat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/toguz_korgool.iml" filepath="$PROJECT_DIR$/.idea/modules/toguz_korgool.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/toguz_korgool_main.iml" filepath="$PROJECT_DIR$/.idea/modules/toguz_korgool_main.iml" group="toguz_korgool" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/toguz_korgool_test.iml" filepath="$PROJECT_DIR$/.idea/modules/toguz_korgool_test.iml" group="toguz_korgool" />
     </modules>
   </component>
 </project>

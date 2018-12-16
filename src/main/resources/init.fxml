@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<GridPane prefHeight="520.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.initController">
+<GridPane prefHeight="520.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="5.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
@@ -71,7 +71,7 @@
       </Pane>
       <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" style="-fx-background-color: #769ab0;" text="Load" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
       <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #769ab0;" text="Save" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="181.0" style="-fx-background-color: #769ab0;" text="Let's Play" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <Button fx:id="play" mnemonicParsing="false" prefHeight="45.0" prefWidth="181.0" style="-fx-background-color: #769ab0;" text="Let's Play" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <font>
             <Font size="26.0" />
          </font>

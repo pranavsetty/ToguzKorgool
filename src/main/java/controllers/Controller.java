@@ -20,7 +20,6 @@ public class Controller {
     private Board board;
     private AI ai;
     private boolean inGame = false;
-    private Configuration config;
     private int turn;
 
     private boolean hasWon = false;
@@ -38,8 +37,17 @@ public class Controller {
     public void initialize() {
 
         // setup member variables
-        board = new Board();
-        ai = new AI(AIType.WILD, true);
+        if(Settings.config == null){
+            board = new Board();
+        } else {
+            board = new Board(Settings.config);
+        }
+
+        if(Settings.aitype == null){
+            ai = new AI(AIType.WILD, true);
+        } else {
+            new AI(Settings.aitype, true);
+        }
 
         // start game
         inGame = true;
