@@ -21,6 +21,6 @@ public class Kazan {
     }
 
     public void clearKazan(){korgols = 0;}
-    
+
 
 }
