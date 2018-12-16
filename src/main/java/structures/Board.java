@@ -186,8 +186,8 @@ public class Board {
 
     // getters
     public ArrayList<Hole> getHoles(){return board;}
-    public int getPlayerOneKazan() {return playerOneKazan;}
-    public int getPlayerTwoKazan() {return playerTwoKazan;}
+    public Kazan getPlayerOneKazan() {return playerOneKazan;}
+    public Kazan getPlayerTwoKazan() {return playerTwoKazan;}
     public void playerOneWin(){playerOneKazan.addKorgols(82); }
     public void playerTwoAlmostWin(){playerTwoKazan.addKorgols(82); }
 

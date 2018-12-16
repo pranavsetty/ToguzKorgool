@@ -1,11 +1,10 @@
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import structures.Kazan;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-public class HoleTest{
+public class KazanTest{
 
     //creates 4 new Hole objects
     private static Kazan one;
@@ -13,7 +12,7 @@ public class HoleTest{
 
 
     @Before
-    public static void Setup(){
+    public void Setup(){
         //initialises the kazans
         one = new Kazan(0);
         two = new Kazan(80);
@@ -32,7 +31,7 @@ public class HoleTest{
         one.addKorgol();
         assertTrue(one.getKorgols() == 1);
         one.addKorgols(20);
-        assertTrue(zero.getKorgols() == 21);
+        assertTrue(one.getKorgols() == 21);
         two.addKorgol();
         assertTrue(two.getKorgols() == 81);
         two.clearKazan();

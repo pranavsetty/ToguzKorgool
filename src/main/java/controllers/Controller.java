@@ -2,13 +2,18 @@ package controllers;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import structures.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -46,7 +51,7 @@ public class Controller {
         if(Settings.aitype == null){
             ai = new AI(AIType.WILD, true);
         } else {
-            new AI(Settings.aitype, true);
+            ai = new AI(Settings.aitype, true);
         }
 
         // start game
@@ -113,10 +118,14 @@ public class Controller {
     private void nextMove(Hole hole) {
         playerMove(hole);
         updateBoard();
-        checkWin();
+        if(checkWin()){
+            return;
+        }
         AIMove();
         updateBoard();
-        checkWin();
+        if(checkWin()){
+            return;
+        }
     }
 
     // moves korgols from a given valid hole from the players
@@ -139,20 +148,7 @@ public class Controller {
         }
     }
 
-    // checks if a given string can be added as a configuration, if so it adds it and returns a
-    // success message, else returns a failure message, for main menu
-    // @param: a string to convert to a configuration
-    // @return: a status message
-    public String add(String sav) {
-        Configuration config = new Configuration(sav);
-        if (config.isValid()) {
-            return Configuration.saveConfigs();
-        } else {
-            return "Invalid configuration. Note that all Korgols on the board must add up to: " + Configuration.TOTALKORGOLS;
-        }
-    }
-
-    private void checkWin() {
+    private boolean checkWin() {
         if(board.hasWon() != null && !hasWon){
             Seat winner = board.hasWon();
             hasWon = true;
@@ -168,22 +164,78 @@ public class Controller {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == buttonTypeOne){
+                inGame = false;
                 hasWon = false;
-                initialize();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/init.fxml"));
+                try {
+                    Parent root = loader.load();
+                    Scene menu = new Scene(root, 800, 600);
+                    Stage window = (Stage)black.getScene().getWindow();
+                    window.setScene(menu);
+                } catch (IOException e){
+
+                }
+                return true;
             }
             else {
                 Platform.exit();
                 System.exit(0);
+                return true;
             }
+        } else {
+
+            boolean drawWhite = true;
+            boolean drawBlack = true;
+            for(Hole h : board.getHoles()){
+
+                if(h.getSeat() == Seat.WHITE && h.getKorgols() != 0){
+                    drawWhite = false;
+                }
+
+                if(h.getSeat() == Seat.BLACK && h.getKorgols() != 0){
+                    drawBlack = false;
+                }
+
+            }
+
+            if(drawBlack || drawWhite){
+
+                hasWon = true;
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Game Over!");
+                alert.setHeaderText("DRAW!");
+                alert.setContentText("Would you like to continue?");
+
+                ButtonType buttonTypeOne = new ButtonType("Start again");
+                ButtonType buttonTypeTwo = new ButtonType("Quit");
+
+                alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == buttonTypeOne){
+                    inGame = false;
+                    hasWon = false;
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/init.fxml"));
+                    try {
+                        Parent root = loader.load();
+                        Scene menu = new Scene(root, 800, 600);
+                        Stage window = (Stage)black.getScene().getWindow();
+                        window.setScene(menu);
+                    } catch (IOException e){
+
+                    }
+                    return true;
+                }
+                else {
+                    Platform.exit();
+                    System.exit(0);
+                    return true;
+                }
+
+            }
+
         }
-    }
-
-
-    // loads a given set of saved configurations into memory
-    // @param: void
-    // @return: a status message
-    public String load() {
-        return Configuration.loadConfigs();
+        return false;
     }
 
 }

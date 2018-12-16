@@ -1,9 +1,10 @@
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import structures.Hole;
+import structures.Seat;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class HoleTest{
 
@@ -15,7 +16,7 @@ public class HoleTest{
 
 
     @Before
-    public static void Setup(){
+    public void Setup(){
         //initialises the holes
         zero = new Hole(0);
         one = new Hole(1);
@@ -44,7 +45,7 @@ public class HoleTest{
         one.addKorgol();
         assertTrue(one.getKorgols() == 2);
         zero.addKorgols(8);
-        assertTrue(zero.getKorgols() == 10);
+        assertTrue(zero.getKorgols() == 12);
     }
 
     @Test
@@ -63,6 +64,6 @@ public class HoleTest{
         zero.setSeat(Seat.WHITE);
         assertTrue(zero.getSeat() == Seat.WHITE);
         one.setSeat(Seat.BLACK);
-        assertTrue(zero.getSeat() == Seat.BLACK);
+        assertTrue(one.getSeat() == Seat.BLACK);
     }
 }
