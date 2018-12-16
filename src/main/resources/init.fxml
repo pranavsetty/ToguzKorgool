@@ -1,63 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #938598;" VBox.vgrow="ALWAYS">
+<GridPane prefHeight="520.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Game">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="5.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" prefWidth="5.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TOGUZ KORGOOL" textAlignment="CENTER" wrappingWidth="244.20605659484863" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Configuration" textAlignment="CENTER" wrappingWidth="244.2060546875" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="initAIType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <ComboBox fx:id="initConfiguration" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Pane prefHeight="154.0" prefWidth="606.0" style="-fx-background-color: #a5bac4;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
          <children>
-            <Text layoutX="179.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configuration" textAlignment="CENTER" wrappingWidth="244.2060546875">
+            <TextField id="tf1" fx:id="tf1" layoutX="528.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf6" fx:id="tf6" layoutX="206.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf5" fx:id="tf5" layoutX="267.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf4" fx:id="tf4" layoutX="332.0" layoutY="16.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf8" fx:id="tf8" layoutX="88.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf2" fx:id="tf2" layoutX="460.0" layoutY="16.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf9" fx:id="tf9" alignment="CENTER" layoutX="29.0" layoutY="16.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf7" fx:id="tf7" layoutX="147.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf3" fx:id="tf3" layoutX="399.0" layoutY="16.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #769ab0;" />
+            <TextField id="tf13" fx:id="tf13" layoutX="206.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf12" fx:id="tf12" layoutX="147.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf14" fx:id="tf14" layoutX="267.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf15" fx:id="tf15" layoutX="332.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf16" fx:id="tf16" layoutX="399.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf17" fx:id="tf17" layoutX="460.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf18" fx:id="tf18" layoutX="528.0" layoutY="109.0" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf11" fx:id="tf11" layoutX="88.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf10" fx:id="tf10" layoutX="29.0" layoutY="109.0" prefHeight="24.0" prefWidth="45.0" style="-fx-background-color: #284e5a;" />
+            <TextField id="tf20" fx:id="tf20" layoutX="140.0" layoutY="53.0" prefHeight="43.0" prefWidth="138.0" style="-fx-background-color: #769ab0;">
                <font>
                   <Font size="20.0" />
                </font>
-            </Text>
-            <Pane layoutX="17.0" layoutY="235.0" prefHeight="109.0" prefWidth="606.0" style="-fx-background-color: #000000;">
-               <children>
-                  <TextField layoutX="540.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="213.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="281.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="352.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="146.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="477.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="14.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="82.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="416.0" layoutY="15.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="146.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="213.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="281.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="352.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="416.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="477.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="540.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="82.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-                  <TextField layoutX="14.0" layoutY="55.0" prefHeight="24.0" prefWidth="45.0" />
-               </children>
-            </Pane>
-            <Button layoutX="262.0" layoutY="350.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Let's Play" textFill="WHITE" />
-            <Text layoutX="179.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOGUZ KORGOOL" textAlignment="CENTER" wrappingWidth="244.20605659484863">
+            </TextField>
+            <TextField fx:id="tf19" layoutX="306.0" layoutY="53.0" prefHeight="42.0" prefWidth="138.0" style="-fx-background-color: #284e5a;">
                <font>
-                  <Font size="24.0" />
+                  <Font size="20.0" />
                </font>
-            </Text>
-            <ImageView fitHeight="130.0" fitWidth="289.0" layoutX="157.0" layoutY="73.0">
-               <image>
-                  <Image url="@../../../../../../Downloads/tk.jpg" />
-               </image>
-            </ImageView>
-            <Text layoutX="179.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Team Meerkat)" textAlignment="CENTER" wrappingWidth="244.20605659484863">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
+            </TextField>
          </children>
-    </AnchorPane>
-  </children>
-</VBox>
+      </Pane>
+      <Button fx:id="load" mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" style="-fx-background-color: #769ab0;" text="Load" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+      <Button fx:id="save" mnemonicParsing="false" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #769ab0;" text="Save" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+      <Button fx:id="play" mnemonicParsing="false" prefHeight="45.0" prefWidth="181.0" style="-fx-background-color: #769ab0;" text="Let's Play" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+   </children>
+</GridPane>

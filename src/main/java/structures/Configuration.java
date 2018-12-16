@@ -28,6 +28,7 @@ public class Configuration {
 
         // check for valid string structure
         if(!input.contains("//")){
+            System.out.println("No Dash");
             return false;
         }
 
@@ -38,6 +39,7 @@ public class Configuration {
 
         // check for valid string structure
         if(holeValues.length != 18 || kazanValues.length != 2){
+            System.out.println("Not enough holes/kazans");
             return false;
         }
 
@@ -46,6 +48,7 @@ public class Configuration {
             white = new Kazan(Integer.parseInt(kazanValues[0]));
             black = new Kazan(Integer.parseInt(kazanValues[1]));
         } catch (NumberFormatException nfe) {
+            System.out.println("Can't format Kazans");
             return false;
         };
 
@@ -55,6 +58,7 @@ public class Configuration {
             try {
                 holes.add(new Hole(Integer.parseInt(number)));
             } catch (NumberFormatException nfe) {
+                System.out.println("Can't format holes");
                 return false;
             };
 
@@ -68,6 +72,7 @@ public class Configuration {
         sum += (getBlackKazan().getKorgols() + getWhiteKazan().getKorgols());
 
         if(sum != TOTALKORGOLS){
+            System.out.println(sum + " is not equal to " + TOTALKORGOLS);
             return false;
         }
 

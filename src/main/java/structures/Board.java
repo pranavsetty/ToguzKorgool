@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    // all hols on the board
+    // all holes on the board
     private ArrayList<Hole> board = new ArrayList<Hole>(18);
 
     // each players kazan
@@ -109,7 +109,6 @@ public class Board {
                 finalHole.addKorgol();
                 break;
             default:
-                System.out.println(targetHoleIndex + " -> " + (targetHoleIndex + ballsToMove - 1) % 18);
                 finalHole = board.get((targetHoleIndex + ballsToMove - 1) % 18);
                 for (int i = targetHoleIndex; i <= (targetHoleIndex + ballsToMove - 1); i++) {
                     board.get(i % 18).addKorgol();
@@ -148,10 +147,10 @@ public class Board {
     // @return: either a winning seat or null
     public Seat hasWon(){
 
-        if(playerOneKazan.getKorgols() == WINAMOUNT){
-            return Seat.BLACK;
-        } else if(playerTwoKazan.getKorgols() == WINAMOUNT){
+        if(playerOneKazan.getKorgols() >= WINAMOUNT){
             return Seat.WHITE;
+        } else if(playerTwoKazan.getKorgols() >= WINAMOUNT){
+            return Seat.BLACK;
         } else {
             return null;
         }
@@ -187,5 +186,9 @@ public class Board {
 
     // getters
     public ArrayList<Hole> getHoles(){return board;}
+    public Kazan getPlayerOneKazan() {return playerOneKazan;}
+    public Kazan getPlayerTwoKazan() {return playerTwoKazan;}
+    public void playerOneWin(){playerOneKazan.addKorgols(82); }
+    public void playerTwoAlmostWin(){playerTwoKazan.addKorgols(82); }
 
 }

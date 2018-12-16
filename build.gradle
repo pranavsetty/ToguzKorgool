@@ -34,7 +34,7 @@ apply plugin: 'jacoco'
 
 jfx {
     // minimal requirement for jfxJar-task
-    mainClass = 'Game'
+    mainClass = 'controllers.Game'
 
     // minimal requirement for jfxNative-task
     vendor = 'Meerkat'
@@ -55,6 +55,6 @@ dependencies {
 
 run {
 
-    mainClassName = "Game";
+    mainClassName = "controllers.Game";
 
 }

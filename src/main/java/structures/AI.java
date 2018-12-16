@@ -7,9 +7,9 @@ import java.util.Random;
 public class AI {
 
     // the weightings to decide how much weight a given factor has in the AI's choice of hole
-    public static double ODDWEIGHT = 1.0;
-    public static double TUZWEIGHT = 3.0;
-    public static double MOODCHANGEWEIGHT = 0.3;
+    public static final double ODDWEIGHT = 1.0;
+    public static final double TUZWEIGHT = 3.0;
+    public static final double MOODCHANGEWEIGHT = 0.3;
 
     // the type of AI it is, defines its behaviour: aggressive, defensive or wild
     private  AIType type;
